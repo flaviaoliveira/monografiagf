@@ -15,8 +15,8 @@ import java.io.Serializable;
 
 @Entity
 @Table
-@IdClass(RecomendacaoPlantioId.class)
-public class RecomendacaoPlantio implements Serializable{
+@IdClass(RecomendacaoProducaoId.class)
+public class RecomendacaoProducao implements Serializable{
 	
     private static final long serialVersionUID = 1L;
 	
@@ -36,13 +36,16 @@ public class RecomendacaoPlantio implements Serializable{
 	private Date data;
 	
 	@Column
-	private Integer dimensao1;
+	private Integer m;
 	
 	@Column
-	private Integer dimensao2;
+	private Integer n;
 	
 	@Column
-	private Integer dimensao3;
+	private Integer produtividade;
+	
+	@Column
+	private Integer n_cova;
 	
 	@Column
 	private double p;
@@ -52,6 +55,9 @@ public class RecomendacaoPlantio implements Serializable{
 	
 	@Column
 	private double mo;
+	
+	@Column
+	private double fosforo;
 	
 	@Column
 	private double sb;
@@ -86,28 +92,44 @@ public class RecomendacaoPlantio implements Serializable{
 		this.data = data;
 	}
 
-	public Integer getDimensao1() {
-		return dimensao1;
+	public Integer getM() {
+		return m;
 	}
 
-	public void setDimensao1(Integer dimensao1) {
-		this.dimensao1 = dimensao1;
+	public void setM(Integer m) {
+		this.m = m;
 	}
 
-	public Integer getDimensao2() {
-		return dimensao2;
+	public Integer getN() {
+		return n;
 	}
 
-	public void setDimensao2(Integer dimensao2) {
-		this.dimensao2 = dimensao2;
+	public void setN(Integer n) {
+		this.n = n;
 	}
 
-	public Integer getDimensao3() {
-		return dimensao3;
+	public Integer getProdutividade() {
+		return produtividade;
 	}
 
-	public void setDimensao3(Integer dimensao3) {
-		this.dimensao3 = dimensao3;
+	public void setProdutividade(Integer produtividade) {
+		this.produtividade = produtividade;
+	}
+
+	public Integer getN_cova() {
+		return n_cova;
+	}
+
+	public void setN_cova(Integer n_cova) {
+		this.n_cova = n_cova;
+	}
+
+	public double getFosforo() {
+		return fosforo;
+	}
+
+	public void setFosforo(double fosforo) {
+		this.fosforo = fosforo;
 	}
 
 	public double getP() {
@@ -160,7 +182,7 @@ public class RecomendacaoPlantio implements Serializable{
 
 	
 }
-class RecomendacaoPlantioId implements Serializable {
+class RecomendacaoProducaoId implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
@@ -176,9 +198,9 @@ class RecomendacaoPlantioId implements Serializable {
 	
 	@Override
 	public boolean equals(Object obj) {
-		if (id_Plantio.equals(((RecomendacaoPlantio)obj).getId_Plantio())
-				&& id_propriedade.equals(((RecomendacaoPlantio)obj).getId_propriedade())
-				&& data.equals(((RecomendacaoPlantio)obj).getData())) {
+		if (id_Plantio.equals(((RecomendacaoProducao)obj).getId_Plantio())
+				&& id_propriedade.equals(((RecomendacaoProducao)obj).getId_propriedade())
+				&& data.equals(((RecomendacaoProducao)obj).getData())) {
 			return true;
 		}
 		return false;

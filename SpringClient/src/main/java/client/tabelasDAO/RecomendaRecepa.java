@@ -24,6 +24,7 @@ public class RecomendaRecepa {
 	private float area_formulado;
 	private float area_superfosfato;
 	private float area_calcario;
+	
 	public float getCalagem() {
 		return calagem;
 	}

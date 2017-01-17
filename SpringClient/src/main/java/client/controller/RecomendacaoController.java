@@ -6,19 +6,24 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import client.Tabelas.Produtor;
 import client.Tabelas.Propriedade;
+import client.Tabelas.RecomendacaoPlantio;
+import client.Tabelas.RecomendacaoProducao;
+import client.Tabelas.RecomendacaoRecepada;
 import client.tabelasDAO.PropriedadeDAO;
 import client.tabelasDAO.RecomendaLavouraProdutiva;
 import client.tabelasDAO.RecomendaPlantio;
 import client.tabelasDAO.RecomendaRecepa;
+import client.tabelasDAO.RecomendacaoDAO;
 
 
 @Controller
@@ -52,17 +57,17 @@ public class RecomendacaoController {
 	  }
 	
 	  @RequestMapping(value = "insereAnalisePlantio", method = RequestMethod.POST)
-	  public String insereAnalise (HttpServletRequest request) throws SQLException{
+	  public String insereAnalisePlatio(@Valid RecomendacaoPlantio rp, BindingResult result,HttpServletRequest request) throws SQLException{
 		 
-//		  System.out.println("rp");
-//			 if(result.hasErrors()){
-//				 System.out.println("erro");
-//				 return "redirect:recomendacaoPlantio";
-//			 }
-//			 RecomendacaoDAO rec = new RecomendacaoDAO();
-//			 rec.insereRecomendacaoPlantio(rp);
+		 
+			 if(result.hasErrors()){
+				 return "redirect:recomendacaoPlantio";
+			 }
+
+			 RecomendacaoDAO rec = new RecomendacaoDAO();
+			 rec.insereRecomendacaoPlantio(rp);
 			 
-			  return "telas/recomendacao";
+			  return "telas/page";
 		 }
   
 	@RequestMapping("recomendacaoLavouraProducao")
@@ -102,6 +107,21 @@ public class RecomendacaoController {
 	    return "telas/recomendacaoLavouraProducao";
 	  }
 	
+	  @RequestMapping(value = "insereAnaliseProducao", method = RequestMethod.POST)
+	  public String insereAnaliseProducao(@Valid RecomendacaoProducao rp, BindingResult result,HttpServletRequest request) throws SQLException{
+		 
+		 
+			 if(result.hasErrors()){
+				 return "redirect:recomendacaoLavouraProducao";
+			 }
+
+			 RecomendacaoDAO rec = new RecomendacaoDAO();
+			 rec.insereRecomendacaoProducao(rp);
+			 
+			  return "telas/page";
+		 }
+	
+	
 	@RequestMapping("recomendacaoLavouraRecepada")
 	  public String recomendacaoLavouraRecepadapublic(ModelMap model, HttpSession session) throws SQLException{
 			Produtor usuario = (Produtor) session.getAttribute("usuarioLogado");
@@ -133,4 +153,19 @@ public class RecomendacaoController {
 					
 	    return "telas/recomendacaoRecepa";
 	  }
+	
+	
+	@RequestMapping(value = "insereAnaliseRecepada", method = RequestMethod.POST)
+	  public String insereAnaliseRecepada(@Valid RecomendacaoRecepada rp, BindingResult result,HttpServletRequest request) throws SQLException{
+		 
+		 
+			 if(result.hasErrors()){
+				 return "redirect:recomendacaoLavouraRecepada";
+			 }
+
+			 RecomendacaoDAO rec = new RecomendacaoDAO();
+			 rec.insereRecomendacaoRecepada(rp);
+			 
+			  return "telas/page";
+		 }
 }

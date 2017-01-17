@@ -9,7 +9,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Gestor Cafeeiro</title>
-
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
@@ -28,196 +27,215 @@
 					<div class="form-group">
 						<h2>Recomendação para Lavoura em Produção</h2>
 					</div>
-					<div class="col-lg-6">
-						<div class="form-group">
-							<label for="lavoura">Lavoura:</label> <select
-								class="form-control" id="id_propriedade" name="id_propriedade">
-								<c:forEach var="lavoura" items="${lavouras}">
-									<option value="${lavoura.id_propriedade}">${lavoura.nome}</option>
-								</c:forEach>
-							</select>
-						</div>
-						<div class="form-group">
-							<label class="control-label">Data:</label> <input name="data"
-								type="date" class="form-control">
-						</div>
-						<div class="form-group">
-							<div class="form-inline">
+					<form method="POST" action="insereAnaliseProducao">
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label for="lavoura">Lavoura:</label> <select
+									class="form-control" id="id_propriedade" name="id_propriedade">
+									<c:forEach var="lavoura" items="${lavouras}">
+										<option value="${lavoura.id_propriedade}">${lavoura.nome}</option>
+									</c:forEach>
+								</select>
+							</div>
+							<div class="form-group">
+								<label class="control-label">Data:</label> <input name="data"
+									type="date" class="form-control">
+							</div>
+							<div class="form-group">
+								<div class="form-inline">
 
-								<label class="control-label">Espaçamento(mxn):</label> 
-								<input name="m" id = "m" onblur="controll()" type="text" class="form-control" style="width: 10%">
-								<label class="control-label">X</label> 
-								<input name="n" id = "n" onblur="controll()" type="text" class="form-control" style="width: 10%"> 
-								<label> __ </label>
-								<label class="control-label" id = "pl_ha"> ${producao.pl_ha }</label> 
-								<label>pl/ha</label> 
+									<label class="control-label">Espaçamento(mxn):</label> <input
+										name="m" id="m" onblur="controll()" type="text"
+										class="form-control" style="width: 10%"> <label
+										class="control-label">X</label> <input name="n" id="n"
+										onblur="controll()" type="text" class="form-control"
+										style="width: 10%"> <label> __ </label> <label
+										class="control-label" id="pl_ha"> ${producao.pl_ha }</label> <label>pl/ha</label>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-inline">
+									<label class="control-label">Produtividade(sc/ha):</label> <input
+										name="produtividade" id="produtividade" onblur="controll()"
+										type="text" class="form-control" style="width: 10%"> <label
+										class="control-label">Número de covas do talhão:</label> <input
+										name="n_cova" id="n_covas" type="text" class="form-control"
+										style="width: 20%" onblur="controll()">
+								</div>
+							</div>
+							<div class="form-group">
+
+								<label class="control-label">Análise do Solo:</label>
+
+								<div class="form-group">
+									<table class="table-bordered">
+										<tbody>
+											<tr>
+												<td style="width: 30%">P (Mehlich-1)</td>
+												<td style="width: 20%"><input name="P" id="p"
+													type="text" onblur="controll()" class="form-control"></td>
+												<td style="width: 30%">mg/dm³</td>
+											</tr>
+											<tr>
+												<td>K (Mehlich-1)</td>
+												<td><input name="k" id="k" onblur="controll()"
+													type="text" class="form-control"></td>
+												<td>mg/dm³</td>
+											</tr>
+											<tr>
+												<td>Matéria Org.</td>
+												<td><input name="mo" id="mo" onblur="controll()"
+													type="text" class="form-control"></td>
+												<td>%</td>
+											</tr>
+											<tr>
+												<td>Fósforo Remanescente (P-rem)</td>
+												<td><input name="fosforo" id="fosforo"
+													onblur="controll()" type="text" class="form-control"></td>
+												<td>mg/L</td>
+											</tr>
+											<tr>
+												<td>Sat. Bases(V)</td>
+												<td><input name="sb" id="sb" onblur="controll()"
+													type="text" class="form-control"></td>
+												<td>%</td>
+											</tr>
+											<tr>
+												<td>CTC do solo (T)</td>
+												<td><input name="ctc" id="ctc" onblur="controll()"
+													type="text" class="form-control"></td>
+												<td>cmolc/dm3</td>
+											</tr>
+											<tr>
+												<td>PRNT do calcário</td>
+												<td><input name="prnt" id="prnt" type="text"
+													onblur="controll()" class="form-control"></td>
+												<td>%</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="form-inline">								 
-								<label class="control-label">Produtividade(sc/ha):</label> 
-								<input name="produtividade" id ="produtividade" onblur="controll()" type="text" class="form-control" style="width: 10%">
-								<label class="control-label">Número de covas do talhão:</label> 
-								<input name="n_cova" id = "n_covas" type="text" class="form-control" style="width: 20%">
-							</div>
-						</div>
-						<div class="form-group">
-
-							<label class="control-label">Análise do Solo:</label>
+						<div class="col-lg-6">
 
 							<div class="form-group">
-								<table class="table-bordered">
+
+								<table class="table">
 									<tbody>
 										<tr>
-											<td style="width: 30%">P (Mehlich-1)</td>
-											<td style="width: 20%"><input name="P" id ="p" type="text" onblur="controll()" class="form-control"></td>
-											<td style="width: 30%">mg/dm³</td>
-										</tr>
-										<tr>
-											<td>K (Mehlich-1)</td>
-											<td><input name="K" id="k" onblur="controll()" type="text" class="form-control"></td>
-											<td>mg/dm³</td>
-										</tr>
-										<tr>
-											<td>Matéria Org.</td>
-											<td><input name="MO" id = "mo" onblur="controll()" type="text" class="form-control"></td>
-											<td>%</td>
-										</tr>
-										<tr>
-											<td>Fósforo Remanescente (P-rem)</td>
-											<td><input name="fosforo" id = "fosforo" onblur="controll()" type="text" class="form-control"></td>
-											<td>mg/L</td>
-										</tr>
-										<tr>
-											<td>Sat. Bases(V)</td>
-											<td><input name="SB" id = "sb" onblur="controll()" type="text" class="form-control"></td>
-											<td>%</td>
-										</tr>
-										<tr>
-											<td>CTC do solo (T)</td>
-											<td><input name="CTC" id = "ctc" onblur="controll()" type="text" class="form-control"></td>
-											<td>cmolc/dm3</td>
-										</tr>
-										<tr>
-											<td>PRNT do calcário</td>
-											<td><input name="PRNT" id = "prnt" type="text" onblur="controll()" class="form-control"></td>
-											<td>%</td>
+											<th style="width: 30%">Calagem:</th>
+											<td style="width: 30%" id="calagem">${producao.calagem}
+											</td>
+											<td style="width: 30%">t/ha de calcário</td>
 										</tr>
 									</tbody>
 								</table>
 							</div>
+
+							<div class="form-group">
+								<label class="control-label">Aplicação de Nutrientes:</label>
+
+								<table class="table">
+									<tbody>
+										<tr>
+											<th id="N">${producao.n}</th>
+											<td>kg/ha/ano de N</td>
+										</tr>
+										<tr>
+											<th id="PO">${producao.PO}</th>
+											<td>kg/ha/ano P2O5</td>
+										</tr>
+										<tr>
+											<th id="KO">${producao.KO}</th>
+											<td>kg/ha/ano K20</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="form-group">
+
+								<table class="table">
+									<tbody>
+										<tr>
+											<th style="width: 30%">Doses de fertilizantes:</th>
+											<td style="width: 30%">Número de pacelas:</td>
+											<td style="width: 20%"><input name="parcelas"
+												id="parcelas" onblur="controll()" type="text"
+												class="form-control"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="form-group">
+								<table class="table">
+									<tbody>
+										<tr>
+											<th>1ª opção:</th>
+											<th id="dose1">${producao.dose1}</th>
+											<td>Aplicação de</td>
+											<th id="apl1">${producao.apl1}</th>
+											<td>g/planta de</td>
+											<th id="f1">${producao.f1}</th>
+										</tr>
+										<tr>
+											<th></th>
+											<th id="dose2">${producao.dose2}</th>
+											<td>Aplicações de</td>
+											<th id="apl2">${producao.apl2}</th>
+											<td>g/planta de</td>
+											<th id="f2">${producao.f2}</th>
+										</tr>
+										<tr>
+											<th>2ª opção:</th>
+											<th id="dose3">${producao.dose3}</th>
+											<td>Aplicações de</td>
+											<th id="apl3">${producao.apl3}</th>
+											<td>g/planta de</td>
+											<th id="f3">${producao.f3}</th>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label">Quantidade de
+									Insumos(referente a 1ª opção):</label>
+								<table class="table">
+									<tbody>
+										<tr>
+											<th>Quantidade:</th>
+											<td>ha</td>
+											<td>Area do talhão: <label class="control-label"
+												id="area_talhao">${producao.area_talhao}</label> ha
+											</td>
+
+										</tr>
+										<tr>
+											<td>Formulado(sc/ha):</td>
+											<th id="ha_formulado">${producao.ha_formulado}</th>
+											<th id="area_formulado">${producao.area_formulado}</th>
+										</tr>
+										<tr>
+											<td>Superfosfato simples(sc/ha):</td>
+											<th id="ha_superfosfato">${producao.ha_superfosfato}</th>
+											<th id="area_superfosfato">${producao.area_superfosfato}</th>
+										</tr>
+										<tr>
+											<td>Calcário(sc/ha):</td>
+											<th id="ha_calcario">${producao.ha_calcario}</th>
+											<th id="area_calcario">${producao.area_calcario}</th>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="form-group pull-right">
+								<button value="insereAnaliseProducao" id="insereAnalise"
+									type="submit" class="btn btn-info btn-block">Salvar
+									resultado da Análise</button>
+							</div>
 						</div>
-					</div>
-					<div class="col-lg-6">
-
-						<div class="form-group">
-			
-							<table class="table">
-								<tbody>
-								<tr>
-									<th style="width: 30%"> Calagem:</th>
-									<td style="width: 30%" id = "calagem"> ${producao.calagem} </td>
-									<td style="width: 30%">t/ha de calcário</td>
-							   </tr>
-								</tbody>
-							</table>
-						</div>
-
-
-
-
-						<div class="form-group">
-							<label class="control-label">Aplicação de Nutrientes:</label>
-
-							<table class="table">
-								<tbody>
-									<tr>
-										<th id = "N">${producao.n}</th>
-										<td>kg/ha/ano de N</td>
-									</tr>
-									<tr>
-										<th id = "PO">${producao.PO}</th>
-										<td>kg/ha/ano P2O5</td>
-									</tr>
-									<tr>
-										<th id = "KO">${producao.KO}</th>
-										<td>kg/ha/ano K20</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div class="form-group">
-			
-							<table class="table">
-								<tbody>
-								<tr>
-									<th style="width: 30%"> Doses de fertilizantes:</th>
-									<td style="width: 30%"> Número de pacelas: </td>
-									<td style="width: 20%"><input name="parcelas" id = "parcelas" onblur="controll()" type="text" class="form-control"></td>
-							   </tr>
-								</tbody>
-							</table>
-						</div>
-						<div class="form-group">
-							<table class="table">
-								<tbody>
-									<tr>
-									    <th>1ª opção:</th>
-										<th id = "dose1"> ${producao.dose1}</th>
-										<td>Aplicação de </td>
-										<th id ="apl1"> ${producao.apl1}</th>
-										<td>g/planta de</td>
-										<th id = "f1">${producao.f1}  </th>
-									</tr>
-									<tr>									
-									    <th></th>
-										<th id = "dose2"> ${producao.dose2}</th>
-										<td>Aplicações de </td>
-										<th id = "apl2"> ${producao.apl2}</th>
-										<td>g/planta de</td>
-										<th id = "f2">${producao.f2}</th>
-									</tr>
-									<tr>
-									    <th>2ª opção:</th>
-										<th id ="dose3"> ${producao.dose3}</th>
-										<td>Aplicações de </td>
-										<th id = "apl3">${producao.apl3}</th>
-										<td>g/planta de</td>
-										<th id = "f3">${producao.f3} </th>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">Quantidade de Insumos(referente a 1ª opção):</label>
-							<table class="table">
-								<tbody>
-									<tr>
-										<th>Quantidade:</th>
-										<td>ha</td>
-										<td>Area do talhão: <label class="control-label" id = "area_talhao">${producao.area_talhao}</label> ha</td>
-										
-									</tr>
-									<tr>
-										<td>Formulado(sc/ha):</td>
-										<th id ="ha_formulado">${producao.ha_formulado}</th>
-										<th id ="area_formulado">${producao.area_formulado}</th>
-									</tr>
-									<tr>
-										<td>Superfosfato simples(sc/ha):</td>
-										<th id ="ha_superfosfato">${producao.ha_superfosfato}</th>
-										<th id ="area_superfosfato">${producao.area_superfosfato}</th>
-									</tr>
-									<tr>
-										<td>Calcário(sc/ha):</td>
-										<th id ="ha_calcario">${producao.ha_calcario}</th>
-										<th id ="area_calcario">${producao.area_calcario}</th>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>

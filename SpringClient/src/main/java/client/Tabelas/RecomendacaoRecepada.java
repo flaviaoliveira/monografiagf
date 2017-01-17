@@ -15,8 +15,8 @@ import java.io.Serializable;
 
 @Entity
 @Table
-@IdClass(RecomendacaoPlantioId.class)
-public class RecomendacaoPlantio implements Serializable{
+@IdClass(RecomendacaoRecepadaId.class)
+public class RecomendacaoRecepada implements Serializable{
 	
     private static final long serialVersionUID = 1L;
 	
@@ -36,13 +36,15 @@ public class RecomendacaoPlantio implements Serializable{
 	private Date data;
 	
 	@Column
-	private Integer dimensao1;
+	private Integer m;
 	
 	@Column
-	private Integer dimensao2;
+	private Integer n;
+	
+	
 	
 	@Column
-	private Integer dimensao3;
+	private Integer n_cova;
 	
 	@Column
 	private double p;
@@ -86,28 +88,27 @@ public class RecomendacaoPlantio implements Serializable{
 		this.data = data;
 	}
 
-	public Integer getDimensao1() {
-		return dimensao1;
+	public Integer getM() {
+		return m;
 	}
 
-	public void setDimensao1(Integer dimensao1) {
-		this.dimensao1 = dimensao1;
+	public void setM(Integer m) {
+		this.m = m;
 	}
 
-	public Integer getDimensao2() {
-		return dimensao2;
+	public Integer getN() {
+		return n;
 	}
 
-	public void setDimensao2(Integer dimensao2) {
-		this.dimensao2 = dimensao2;
+	public void setN(Integer n) {
+		this.n = n;
+	}
+	public Integer getN_cova() {
+		return n_cova;
 	}
 
-	public Integer getDimensao3() {
-		return dimensao3;
-	}
-
-	public void setDimensao3(Integer dimensao3) {
-		this.dimensao3 = dimensao3;
+	public void setN_cova(Integer n_cova) {
+		this.n_cova = n_cova;
 	}
 
 	public double getP() {
@@ -160,7 +161,7 @@ public class RecomendacaoPlantio implements Serializable{
 
 	
 }
-class RecomendacaoPlantioId implements Serializable {
+class RecomendacaoRecepadaId implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
@@ -176,9 +177,9 @@ class RecomendacaoPlantioId implements Serializable {
 	
 	@Override
 	public boolean equals(Object obj) {
-		if (id_Plantio.equals(((RecomendacaoPlantio)obj).getId_Plantio())
-				&& id_propriedade.equals(((RecomendacaoPlantio)obj).getId_propriedade())
-				&& data.equals(((RecomendacaoPlantio)obj).getData())) {
+		if (id_Plantio.equals(((RecomendacaoRecepada)obj).getId_Plantio())
+				&& id_propriedade.equals(((RecomendacaoRecepada)obj).getId_propriedade())
+				&& data.equals(((RecomendacaoRecepada)obj).getData())) {
 			return true;
 		}
 		return false;

@@ -24,190 +24,211 @@
 	<div class="container" style="width: default">
 		<div class="row">
 			<div class="panel panel-primary">
-			
+
 				<div class="panel-body">
 					<div class="form-group">
 						<h2>Recomendação para Plantio e Formação</h2>
 					</div>
-					<form  method="POST" action = "insereAnalisePlantio">
-					<div class="col-lg-6">
-						<div class="form-group">
-							<label for="lavoura">Lavoura:</label> <select
-								class="form-control" id="sel1" name="id_propriedade">
-								<c:forEach var="lavoura" items="${lavouras}">
-									<option value="${lavoura.id_propriedade}">${lavoura.nome}</option>
-								</c:forEach>
-							</select>
-						</div>
-						<div class="form-group">
-							<label class="control-label">Data:</label> <input name="data"
-								type="date" class="form-control">
-						</div>
-						<div class="form-group">
-							<div class="form-inline">
+					<form method="POST" action="insereAnalisePlantio">
+						<div class="col-lg-6">
 
-								<label class="control-label">Dimensões da cova(cm):</label> 
-								<input name="dimensao1" id = "d1"type="text" class="form-control"  style="width: 10%" onblur="calcDSBCP()">
-								<input name="dimensao2" id = "d2" type="text" class="form-control" style="width: 10%" onblur="calcDSBCP()">
-							    <input name="dimensao3" id = "d3" type="text" class="form-control" style="width: 10%"  onblur="calcDSBCP()">
-
-							</div>
-						</div>
-						<div class="form-group">
-
-							<label class="control-label">Análise do Solo:</label>
 
 							<div class="form-group">
-								<table class="table-bordered">
+								<label for="lavoura">Lavoura:</label> <select
+									class="form-control" id="sel1" name="id_propriedade">
+									<c:forEach var="lavoura" items="${lavouras}">
+										<option value="${lavoura.id_propriedade}">${lavoura.nome}</option>
+									</c:forEach>
+								</select>
+							</div>
+
+
+
+							<div class="form-group">
+								<label class="control-label" for="data">Data:</label> <input
+									name="data" type="date" class="form-control">
+							</div>
+							<div class="form-group">
+								<div class="form-inline">
+
+									<label class="control-label">Dimensões da cova(cm):</label> <input
+										name="dimensao1" id="d1" type="text" class="form-control"
+										style="width: 10%" onblur="calcDSBCP()"> <input
+										name="dimensao2" id="d2" type="text" class="form-control"
+										style="width: 10%" onblur="calcDSBCP()"> <input
+										name="dimensao3" id="d3" type="text" class="form-control"
+										style="width: 10%" onblur="calcDSBCP()">
+
+								</div>
+							</div>
+							<div class="form-group">
+
+								<label class="control-label">Análise do Solo:</label>
+
+								<div class="form-group">
+									<table class="table-bordered">
+										<tbody>
+											<tr>
+												<td style="width: 30%">P (Mehlich-1)</td>
+												<td style="width: 15%"><input name="p" id="P"
+													type="text" class="form-control" onblur="calcDSBCP()"></td>
+												<td style="width: 30%">mg/dm³</td>
+											</tr>
+											<tr>
+												<td>K (Mehlich-1)</td>
+												<td><input name="k" id="K" type="text"
+													class="form-control" onblur="calcAdubacaoCobertura()"></td>
+												<td>mg/dm³</td>
+											</tr>
+											<tr>
+												<td>Matéria Org.</td>
+												<td><input name="mo" id="MO" type="text"
+													class="form-control" onblur="calcEsterco()"></td>
+												<td>%</td>
+											</tr>
+											<tr>
+												<td>Sat. Bases(V)</td>
+												<td><input name="sb" id="SB" type="text"
+													class="form-control" onblur="calcDSBCP()"></td>
+												<td>%</td>
+											</tr>
+											<tr>
+												<td>CTC do solo (T)</td>
+												<td><input name="ctc" id="CTC" type="text"
+													class="form-control" onblur="calcDSBCP()"></td>
+												<td>cmolc/dm3</td>
+											</tr>
+											<tr>
+												<td>PRNT do calcário</td>
+												<td><input name="prnt" id="PRNT" type="text"
+													class="form-control" onblur="calcDSBCP()"></td>
+												<td>%</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+
+							<label class="control-label">OBSERVAÇÃO: Caso não seja
+								possível a incorporação do calcário, dividir em doses de, no
+								máximo 3 t/ha, por vez, espaçados de um período de, no mínimo,
+								10 meses. </label>
+
+						</div>
+
+						<div class="col-lg-6">
+							<div class="form-group">
+								<label class="control-label">Aplicação na cova:</label>
+
+								<table class="table">
 									<tbody>
 										<tr>
-											<td style="width: 30%">P (Mehlich-1)</td>
-											<td style="width: 15%"><input name="p" id = "P" type="text"
-												class="form-control" onblur="calcDSBCP()"></td>
-											<td style="width: 30%">mg/dm³</td>
+											<th id="esterco">${plantio.esterco}</th>
+											<td>L de esterco de curral</td>
 										</tr>
 										<tr>
-											<td>K (Mehlich-1)</td>
-											<td><input name="k"  id = "K" type="text" class="form-control"  onblur="calcAdubacaoCobertura()"></td>
-											<td>mg/dm³</td>
+											<th id="superfosfato">${plantio.superfosfato}</th>
+											<td>g de superfosfato simples</td>
 										</tr>
 										<tr>
-											<td>Matéria Org.</td>
-											<td><input name="mo"  id = "MO" type="text" class="form-control" onblur="calcEsterco()"></td>
-											<td>%</td>
+											<th id="calcario">${plantio.calcario}</th>
+											<td>g de calcário</td>
 										</tr>
 										<tr>
-											<td>Sat. Bases(V)</td>
-											<td><input name="sb" id = "SB" type="text" class="form-control" onblur="calcDSBCP()"></td>
-											<td>%</td>
+											<th id="fte">${plantio.fte}</th>
+											<td>g de FTE</td>
 										</tr>
 										<tr>
-											<td>CTC do solo (T)</td>
-											<td><input name="ctc" id = "CTC" type="text" class="form-control" onblur="calcDSBCP()"></td>
-											<td>cmolc/dm3</td>
-										</tr>
-										<tr>
-											<td>PRNT do calcário</td>
-											<td><input name="prnt"  id = "PRNT" type="text" class="form-control" onblur="calcDSBCP()"></td>
-											<td>%</td>
+											<th><label class="control-label">Calagem:</label></th>
+											<td><label class="control-label" id="calagem">${plantio.calagem}</label>
+												t/ha de calcário (Ler observação)</td>
+
 										</tr>
 									</tbody>
 								</table>
 							</div>
-						</div>
-						
-						<label class="control-label">OBSERVAÇÃO: Caso não seja possível a incorporação do calcário,
-						dividir em doses de, no máximo 3 t/ha, por vez, espaçados de um período de, no mínimo, 10 meses. </label>
-						
-					</div>
+
+							<div class="form-group">
+								<label class="control-label">Aplicação de cobertura após
+									plantio:</label>
+								<table class="table">
+									<tbody>
+										<tr>
+											<td>30 dias do plantio:</td>
+											<th>25</th>
+											<td>g/covas de</td>
+											<th id="cobertura1">${plantio.cobertura}</th>
+										</tr>
+										<tr>
+											<td>60 dias do plantio:</td>
+											<th>30</th>
+											<td>g/covas de</td>
+											<th id="cobertura2">${plantio.cobertura}</th>
+										</tr>
+										<tr>
+											<td>90 dias do plantio:</td>
+											<th>40</th>
+											<td>g/covas de</td>
+											<th id="cobertura3">${plantio.cobertura}</th>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="form-group">
+								<label class="control-label">Adubação de primeiro ano:</label>
+								<table class="table">
+									<tbody>
+										<tr>
+											<td>Setembro:</td>
+											<th>60</th>
+											<td>g/covas de</td>
+											<th id="cobertura4">${plantio.cobertura}</th>
+										</tr>
+										<tr>
+											<td>Novembro:</td>
+											<th>80</th>
+											<td>g/covas de</td>
+											<th id="cobertura5">${plantio.cobertura}</th>
+										</tr>
+										<tr>
+											<td>Janeiro:</td>
+											<th>100</th>
+											<td>g/covas de</td>
+											<th id="cobertura6">${plantio.cobertura}</th>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="form-group pull-right">
+								<button value="insereAnalisePlantio" id="insereAnalise"
+									type="submit" class="btn btn-info btn-block">Salvar
+									resultado da Análise</button>
+							</div>
+						</div>	
 					</form>
-					<div class="col-lg-6">
-						<div class="form-group">
-							<label class="control-label">Aplicação na cova:</label>
 
-							<table class="table">
-								<tbody>
-									<tr>
-										<th id = "esterco">${plantio.esterco}</th>
-										<td>L de esterco de curral</td>
-									</tr>
-									<tr>
-										<th id = "superfosfato">${plantio.superfosfato}</th>
-										<td>g de superfosfato simples</td>
-									</tr>
-									<tr>
-										<th id = "calcario">${plantio.calcario}</th>
-										<td>g de calcário</td>
-									</tr>
-									<tr>
-										<th id = "fte">${plantio.fte}</th>
-										<td>g de FTE</td>
-									</tr>
-									<tr> 
-									   <th><label class="control-label">Calagem:</label></th>
-										<td><label class="control-label" id = "calagem">${plantio.calagem}</label>  t/ha de calcário (Ler observação)</td>
-										
-									</tr>		
-								</tbody>
-							</table>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label">Aplicação de cobertura após
-								plantio:</label>
-							<table class="table">
-								<tbody>
-									<tr>
-										<td>30 dias do plantio:</td>
-										<th>25</th>
-										<td>g/covas de</td>
-										<th id = "cobertura1">${plantio.cobertura}</th>
-									</tr>
-									<tr>
-										<td>60 dias do plantio:</td>
-										<th>30</th>
-										<td>g/covas de</td>
-										<th id = "cobertura2">${plantio.cobertura}</th>
-									</tr>
-									<tr>
-										<td>90 dias do plantio:</td>
-										<th>40</th>
-										<td>g/covas de</td>
-										<th id = "cobertura3">${plantio.cobertura}</th>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						
-						<div class="form-group">
-							<label class="control-label">Adubação de primeiro ano:</label>
-							<table class="table">
-								<tbody>
-									<tr>
-										<td>Setembro:</td>
-										<th>60</th>
-										<td>g/covas de</td>
-										<th id = "cobertura4">${plantio.cobertura}</th>
-									</tr>
-									<tr>
-										<td>Novembro:</td>
-										<th>80</th>
-										<td>g/covas de</td>
-										<th id = "cobertura5">${plantio.cobertura}</th>
-									</tr>
-									<tr>
-										<td>Janeiro:</td>
-										<th>100</th>
-										<td>g/covas de</td>
-										<th id = "cobertura6">${plantio.cobertura}</th>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						
-						<div class="form-group pull-right">
-							<button value = "insereAnalisePlantio" id="insereAnalise" type="submit"
-							        class="btn btn-info btn-block">Salvar resultado da Análise</button>
-						</div>
-						
-					</div>
 				</div>
-				
 			</div>
+
 		</div>
-		
-		<!-- Footer -->
-		<footer>
-			<div class="row">
-				<div class="col-lg-10">
-					<p></p>
-				</div>
-				<!-- /.col-lg-12 -->
-			</div>
-			<!-- /.row -->
-		</footer>
 
 	</div>
+	
+
+	<!-- Footer -->
+	<footer>
+		<div class="row">
+			<div class="col-lg-10">
+				<p></p>
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+		<!-- /.row -->
+	</footer>
+
+
 	<!-- /.container -->
 	<script>
       function calcEsterco() {
