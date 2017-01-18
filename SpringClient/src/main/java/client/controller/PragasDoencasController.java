@@ -26,6 +26,9 @@ public class PragasDoencasController {
 	@RequestMapping("pragasdoencas")
 	  public String pragasdoencas(ModelMap model,HttpSession session) throws SQLException {
 		
+		if(session.getAttribute("usuarioLogado")==null){
+			return "loginForm";
+		}
 		Produtor usuario = (Produtor) session.getAttribute("usuarioLogado");
 		List<Propriedade> prop = new ArrayList<Propriedade>();
 		PropriedadeDAO p = new PropriedadeDAO();

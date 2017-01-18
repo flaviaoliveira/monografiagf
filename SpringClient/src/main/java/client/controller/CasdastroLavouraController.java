@@ -49,7 +49,8 @@ public class CasdastroLavouraController {
 		 pp.setId_propriedade(id);
 		 pp.setId_produtor(usuario.getId_produtor());
 		 propriedadeDAO.inserePropriedadeProdutor(pp);
-		 	 
+		 
+		 
 		 return "redirect:inicio";
 	  }	  
 }
