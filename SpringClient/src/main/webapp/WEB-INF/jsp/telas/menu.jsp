@@ -65,9 +65,9 @@
         <a class="dropdown-toggle" data-toggle="dropdown">Editar
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="">Lavoura</a></li>
-          <li><a href="">Ocorrência de pragas e doenças</a></li>
-          <li><a href="">Despesas</a></li>  
+          <li><a href="editarlavouras">Lavoura</a></li>
+          <li><a href="editarpragas">Ocorrência de pragas e doenças</a></li>
+          <li><a href="editardespesas">Despesas</a></li>  
         </ul>
         
     </ul>

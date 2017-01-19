@@ -48,6 +48,13 @@
 								<label class="control-label" for="data">Data:</label> <input
 									name="data" type="date" class="form-control">
 							</div>
+
+							<div class="form-group">
+								<button type="submit" class="btn btn-info" value="Procurar">
+									<span class="glyphicon glyphicon-search"></span>
+								</button>
+							</div>
+
 							<div class="form-group">
 								<div class="form-inline">
 
@@ -206,7 +213,7 @@
 									type="submit" class="btn btn-info btn-block">Salvar
 									resultado da Análise</button>
 							</div>
-						</div>	
+						</div>
 					</form>
 
 				</div>
@@ -215,7 +222,7 @@
 		</div>
 
 	</div>
-	
+
 
 	<!-- Footer -->
 	<footer>
