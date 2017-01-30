@@ -316,7 +316,7 @@
 		var n_covas = document.getElementById("covas");
 		var area = n_covas.value/plha_o;
 		if(plha_o>0){
-			area_talhao.innerHTML = n_covas.value/plha_o;
+			area_talhao.innerHTML = Math.round(n_covas.value/plha_o);
 		}
 		
 		

@@ -1,13 +1,12 @@
- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
 
 <title>Login</title>
 </head>
@@ -29,11 +28,11 @@
 					<section class="jumbotron text-center">
 					<div class="container">
 						<h1 class="jumbotron-heading">Gestor Cafeeiro</h1>
-						<p class="lead text-muted">Faça a gestão de suas lavouras
-							cafeeiras com mais eficiência. Registre suas despesas ao longo de
-							toda a produção de café e disponha de relatórios completos sobre
-							o andamento de sua produção.Além disso, aproveite o sistema de
-							recomendação de adubação e calagem, para ajuda-ló na aplicação de
+						<p class="lead text-muted">FaÃ§a a gestÃ£o de suas lavouras
+							cafeeiras com mais eficiÃªncia. Registre suas despesas ao longo de
+							toda a produÃ§Ã£o de cafÃ© e disponha de relatÃ³rios completos sobre
+							o andamento de sua produÃ§Ã£o.AlÃ©m disso, aproveite o sistema de
+							recomendaÃ§Ã£o de adubaÃ§Ã£o e calagem, para ajuda-lÃ³ na aplicaÃ§Ã£o de
 							insumos</p>
 						<p>
 							<button type="button" class="btn btn-primary" data-toggle="modal"
@@ -107,7 +106,7 @@
 										<div class="form-group">
 											<label class="control-label" for="senha">Senha</label> <input
 												name="senha" type="password" maxlength="25"
-												class="form-control" placeholder=" No minímo 6 caracteres">
+												class="form-control" placeholder=" No minÃ­mo 6 caracteres">
 										</div>
 										<div class="form-group">
 											<button id="criarconta" type="submit"
@@ -129,22 +128,22 @@
 									<img class="img-circle"
 										src="/assets/bootstrap-3.3.5-dist/img/gasto.png">
 									<h2>Despesa</h2>
-									<p>Registre todas as despesas obtidas na sua produção de café em tempor real.</p>
+									<p>Registre todas as despesas obtidas na sua produÃ§Ã£o de cafÃ© em tempor real.</p>
 								</div>
 								<!-- /.col-lg-4 -->
 								<div class="col-lg-4 text-center">
 									<img class="img-circle"
 										src="/assets/bootstrap-3.3.5-dist/img/relatorioespecifico.png">
-									<h2>Relatórios</h2>
-									<p>Veja os relatorios feitos com base nós gastos registrados no Gestor Cafeeiro.</p>
+									<h2>RelatÃ³rios</h2>
+									<p>Veja os relatorios feitos com base nÃ³s gastos registrados no Gestor Cafeeiro.</p>
 
 								</div>
 								<!-- /.col-lg-4 -->
 								<div class="col-lg-4 text-center">
 									<img class="img-fluid img-circle"
 										src="/assets/bootstrap-3.3.5-dist/img/img2.png">
-									<h2>Adubação e Calagem</h2>
-									<p>Faça a recomendação de adubação e calagem de forma fácil.</p>
+									<h2>AdubaÃ§Ã£o e Calagem</h2>
+									<p>FaÃ§a a recomendaÃ§Ã£o de adubaÃ§Ã£o e calagem de forma fÃ¡cil.</p>
 	
 								</div>
 								<!-- /.col-lg-4 -->

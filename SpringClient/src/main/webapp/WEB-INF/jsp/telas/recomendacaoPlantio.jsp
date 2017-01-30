@@ -49,11 +49,6 @@
 									name="data" type="date" class="form-control">
 							</div>
 
-							<div class="form-group">
-								<button type="submit" class="btn btn-info" value="Procurar">
-									<span class="glyphicon glyphicon-search"></span>
-								</button>
-							</div>
 
 							<div class="form-group">
 								<div class="form-inline">
@@ -266,7 +261,7 @@
     	    
     	    var superfosfato = document.getElementById("superfosfato");
     	    
-    	    var d = (d1.value * d2.value * d3.value)/1000;
+    	    var d = Math.round((d1.value * d2.value * d3.value)/1000);
     	    
     	    // calcula superfosfato
     	    var P = document.getElementById("P");
@@ -283,7 +278,7 @@
     	    //calcula calcario
     	    var calcario = document.getElementById("calcario");
     	    var cl = ((80-SB.value)*CTC.value)/PRNT.value;
-        	var c2 = (cl/2)*d;
+        	var c2 = Math.round((cl/2)*d);
     	   	if(c2> 0){
     	 		calcario.innerHTML = c2;
     	    }else{
@@ -293,7 +288,7 @@
     	  	var calagem = document.getElementById("calagem");
     	  	var ca = ((60-SB.value)*CTC.value)/PRNT.value;
     	  	if(ca> 0){
-   	    	     calagem.innerHTML = ca;
+   	    	     calagem.innerHTML = parseFloat(ca.toFixed(1));
    	       }else{
    	  		     calagem.innerHTML = 0;
     	   }

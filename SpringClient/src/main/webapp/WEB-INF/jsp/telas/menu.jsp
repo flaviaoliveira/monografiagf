@@ -54,7 +54,7 @@
         </ul>
      
          <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown">Relatórios 
+        <a class="dropdown-toggle" data-toggle="dropdown">Relatório 
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="">Um ano específico</a></li>
@@ -62,12 +62,12 @@
         </ul>
         
           <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown">Editar
+        <a class="dropdown-toggle" data-toggle="dropdown">Edição
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="editarlavouras">Lavoura</a></li>
-          <li><a href="editarpragas">Ocorrência de pragas e doenças</a></li>
-          <li><a href="editardespesas">Despesas</a></li>  
+          <li><a href="editardespesas">Despesas</a></li> 
+          <li><a href="editarpragas">Pragas e doenças</a></li> 
         </ul>
         
     </ul>

@@ -40,7 +40,7 @@
 								<input name="propriedade_tamanho" type="text" maxlength="50" class="form-control">
 							</div>
 							<div class="form-group">
-								<label class="control-label" for="lavoura_tamanho">Tamanho da lavoura(Hectare):</label> 
+								<label class="control-label" for="lavoura_tamanho">Área da lavoura(Hectare):</label> 
 								<input name="lavoura_tamanho" type="text" maxlength="50" class="form-control">
 							</div>
 							<div class="form-group">
