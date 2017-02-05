@@ -43,15 +43,21 @@ public class Beneficiamento implements Serializable{
 		
 	
 	@Column
-	private float qnt_café;
+	private float qnt_bags;
 	
 	
 	@Column
-	private float horas;
+	private float hrs_maquina;
 	
 	
 	@Column
-	private float despesa_horas;
+	private float despesa_maquina;
+	
+	@Column
+	private String descricao;
+	
+	@Column
+	private float despesa_outro;
 
 	public Integer getId_beneficiamento() {
 		return id_beneficiamento;
@@ -93,31 +99,45 @@ public class Beneficiamento implements Serializable{
 		this.despesa_func = despesa_func;
 	}
 
-	public float getQnt_café() {
-		return qnt_café;
+	public float getQnt_bags() {
+		return qnt_bags;
 	}
 
-	public void setQnt_café(float qnt_café) {
-		this.qnt_café = qnt_café;
+	public void setQnt_bags(float qnt_bags) {
+		this.qnt_bags = qnt_bags;
 	}
 
-	public float getHoras() {
-		return horas;
+	public float getHrs_maquina() {
+		return hrs_maquina;
 	}
 
-	public void setHoras(float horas) {
-		this.horas = horas;
+	public void setHrs_maquina(float hrs_maquina) {
+		this.hrs_maquina = hrs_maquina;
 	}
 
-	public float getDespesa_horas() {
-		return despesa_horas;
+	public float getDespesa_maquina() {
+		return despesa_maquina;
 	}
 
-	public void setDespesa_horas(float despesa_horas) {
-		this.despesa_horas = despesa_horas;
+	public void setDespesa_maquina(float despesa_maquina) {
+		this.despesa_maquina = despesa_maquina;
 	}
 
-	
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public float getDespesa_outro() {
+		return despesa_outro;
+	}
+
+	public void setDespesa_outro(float despesa_outro) {
+		this.despesa_outro = despesa_outro;
+	}
 	
 }
 

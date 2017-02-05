@@ -8,16 +8,15 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import client.BDManege.DBManager;
-import client.Tabelas.Insumos;
+import client.Tabelas.PosColheita;
 
-public class InsumosDAO {
-	
-	 @PersistenceContext
+public class PosColheitaDAO {
+	@PersistenceContext
 	 private static EntityManager manager;
 	 
-	 public void insereInsumos(Insumos pd) throws SQLException{	
+	 public void inserePosColheita(PosColheita pd) throws SQLException{	
 		  manager = DBManager.getEntityManager();
-          manager.getTransaction().begin();		     
+        manager.getTransaction().begin();		     
 		  manager.persist(pd);
 		  manager.flush();
 		  manager.clear();
@@ -25,16 +24,16 @@ public class InsumosDAO {
 		  manager.close();	
 	 }
 	 
-	 public List <Insumos> ListaInsumos()throws SQLException {
+	 public List <PosColheita> ListaPosColheita()throws SQLException {
 			
 			manager = DBManager.getEntityManager();
 	        manager.getTransaction().begin();	
-	        TypedQuery<Insumos>  query = manager.createQuery(
+	        TypedQuery<PosColheita>  query = manager.createQuery(
 	        	    "SELECT p "+ 
-	        	    "FROM Insumos p", 
-	        	    Insumos.class);
+	        	    "FROM PosColheita p", 
+	        	    PosColheita.class);
 	        	        
-	         List<Insumos> results = query.getResultList();
+	         List<PosColheita> results = query.getResultList();
 	   
 			 manager.flush();
 		     manager.clear();
@@ -43,6 +42,5 @@ public class InsumosDAO {
 		        
 			return results;
 		}
-
 
 }

@@ -36,13 +36,13 @@
 
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active"><a href="#preplantio"
-							aria-controls="preplatio" role="tab" data-toggle="tab">Pre_plantio</a></li>
+							aria-controls="preplatio" role="tab" data-toggle="tab">Pré-plantio</a></li>
 						<li role="presentation"><a href="#plantio"
 							aria-controls="plantio" role="tab" data-toggle="tab">Plantio</a></li>
 						<li role="presentation"><a href="#colheita"
 							aria-controls="colheita" role="tab" data-toggle="tab">Colheita</a></li>
 						<li role="presentation"><a href="#poscolheita"
-							aria-controls="colheita" role="tab" data-toggle="tab">Pos_Colheita</a></li>
+							aria-controls="colheita" role="tab" data-toggle="tab">Pos-Colheita</a></li>
 						<li role="presentation"><a href="#beneficiamento"
 							aria-controls="beneficiamento" role="tab" data-toggle="tab">Beneficiamento</a></li>
 						<li role="presentation"><a href="#insumos"
@@ -60,7 +60,7 @@
 					<div class="tab-content">
 
 						<div role="tabpanel" class="tab-pane active" id="preplantio">
-							<form method="POST" action="">
+							<form method="POST" action="registraPrePlantio">
 								<div class="col-lg-6">
 
 									<h3>Informações</h3>
@@ -82,11 +82,11 @@
 									<h3></h3>
 
 									<div class="form-inline">
-										<label class="control-label" for="area_p">Área
-											trabalhada(%):</label> <input name="area_p" type="text"
+										<label class="control-label" for="area_t">Área
+											trabalhada(%):</label> <input name="area_t" type="text"
 											class="form-control" style="width: 20%"> <label
-											class="control-label" for="area_p">Número de covas: </label>
-										<input name="area_p" type="text" class="form-control"
+											class="control-label" for="n_covas">Número de covas: </label>
+										<input name="n_covas" type="text" class="form-control"
 											style="width: 20%">
 									</div>
 
@@ -112,8 +112,8 @@
 										<label class="control-label" for="tipo_adubo">Adubo:</label> <select
 											class="form-control" style="width: 20%" id="sel1"
 											name="tipo_adubo">
-											<option>Ad1</option>
-											<option>Ad2</option>
+											<option>P2O5</option>
+											<option>P resina</option>
 											<option>Outros</option>
 										</select> <label class="control-label" for="qnt_adubo">Qtd.:</label> <input
 											name="qnt_adubo" type="text" class="form-control"
@@ -133,11 +133,11 @@
 										<label class="control-label" for="tipo_calcario">Calcário:</label>
 										<select class="form-control" style="width: 20%" id="sel1"
 											name="tipo_calcario">
-											<option>Ad1</option>
-											<option>Ad2</option>
+											<option>Calcario01</option>
+											<option>Calcario02</option>
 											<option>Outros</option>
-										</select> <label class="control-label" for="qnt_calcário">Qtd.:</label>
-										<input name="qnt_muda" type="text" class="form-control"
+										</select> <label class="control-label" for="qnt_calcario">Qtd.:</label>
+										<input name="qnt_calcario" type="text" class="form-control"
 											style="width: 20%"> <label class="control-label"
 											for="despesa_calcario">Despesa:</label> <input
 											name="despesa_calcario" type="text" class="form-control"
@@ -152,8 +152,8 @@
 										<label class="control-label" for="tipo_herbicida">Herbicida:</label>
 										<select class="form-control" style="width: 20%" id="sel1"
 											name="tipo_herbicida">
-											<option>Ad1</option>
-											<option>Ad2</option>
+											<option>herbicida01</option>
+											<option>herbicida02</option>
 											<option>Outros</option>
 										</select> <label class="control-label" for="qnt_herbicida">Qtd.:</label>
 										<input name="qnt_herbicida" type="text" class="form-control"
@@ -322,7 +322,7 @@
 										<label class="control-label" for="qnt_sacas">Qtd.
 											colhido(saco):</label> <input name="qnt_sacas" type="text"
 											class="form-control" style="width: 25%"> <label
-											class="control-label" for="cdespesa_saca">Preço por
+											class="control-label" for="despesa_saca">Preço por
 											saco:</label> <input name="despesa_saca" type="text"
 											class="form-control" style="width: 25%">
 									</div>
@@ -335,10 +335,10 @@
 									</div>
 
 									<div class="form-inline">
-										<label class="control-label" for="qnt_viagens">Número
+										<label class="control-label" for="n_viagens">Número
 											de viagens: </label> <input name="n_viagens" type="text"
 											class="form-control" style="width: 25%"> <label
-											class="control-label" for="cdespesa_viagens">Despesa:
+											class="control-label" for="despesa_viagens">Despesa:
 										</label> <input name="despesa_viagens" type="text"
 											class="form-control" style="width: 30%">
 									</div>
@@ -374,7 +374,7 @@
 
 						<div role="tabpanel" class="tab-pane" id="poscolheita">
 
-							<form method="POST" action="">
+							<form method="POST" action="registraPosColheita">
 								<div class="col-lg-6">
 
 									<h3>Informações</h3>
@@ -417,13 +417,13 @@
 									</div>
 
 									<div class="form-inline">
-										<label class="control-label" for="qnt_sacas">Qtd.:</label> <input
-											name="qnt_sacas" type="text" class="form-control"
+										<label class="control-label" for="qnt_cafe">Qtd.:</label> <input
+											name="qnt_cafe" type="text" class="form-control"
 											style="width: 20%"> <label class="control-label"
-											for="qnt_sacas">Hrs. :</label> <input name="hrs_secador"
+											for="hrs_secador">Hrs. :</label> <input name="hrs_secador"
 											type="text" class="form-control" style="width: 20%">
-										<label class="control-label" for="despesa_saca">Despesa:</label>
-										<input name="despesa_saca" type="text" class="form-control"
+										<label class="control-label" for="despesa_secador">Despesa:</label>
+										<input name="despesa_secador" type="text" class="form-control"
 											style="width: 20%">
 
 									</div>
@@ -498,13 +498,13 @@
 										<h3>Limpeza na máquina</h3>
 									</div>
 									<div class="form-inline">
-										<label class="control-label" for="qnt_sacas">Qtd.(bag):</label>
-										<input name="qnt_sacas" type="text" class="form-control"
+										<label class="control-label" for="qnt_bags">Qtd.(bag):</label>
+										<input name="qnt_bags" type="text" class="form-control"
 											style="width: 20%"> <label class="control-label"
-											for="qnt_sacas">Hrs. :</label> <input name="hrs_secador"
+											for="qnt_maquina">Hrs. :</label> <input name="hrs_maquina"
 											type="text" class="form-control" style="width: 20%">
-										<label class="control-label" for="despesa_saca">Despesa:</label>
-										<input name="despesa_saca" type="text" class="form-control"
+										<label class="control-label" for="despesa_maquina">Despesa:</label>
+										<input name="despesa_maquina" type="text" class="form-control"
 											style="width: 20%">
 
 									</div>
@@ -527,11 +527,11 @@
 										<h3>Final do beneficiamento</h3>
 									</div>
 									<div class="form-inline">
-										<label class="control-label" for="qnt_final">Qtd. de
-											sacas:</label> <input name="qnt_func" type="text"
+										<label class="control-label" for="qnt_sacas">Qtd. de
+											sacas:</label> <input name="qnt_sacas" type="text"
 											class="form-control" style="width: 25%"> <label
 											class="control-label" for="valor_saca">Valor da saca
-											vendida: </label> <input name="despesa_func" type="text"
+											vendida: </label> <input name="valor_saca" type="text"
 											class="form-control" style="width: 25%">
 									</div>
 
@@ -602,8 +602,8 @@
 										<label class="control-label" for="tipo_adubo">Tipo:</label> <select
 											class="form-control" style="width: 20%" id="sel1"
 											name="tipo_adubo">
-											<option>I1</option>
-											<option>I2</option>
+											<option>Insumo01</option>
+											<option>Insumo02</option>
 											<option>Outros</option>
 										</select> <label class="control-label" for="qnt_adubo">Qtd.:</label> <input
 											name="qnt_adubo" type="text" class="form-control"
@@ -745,7 +745,7 @@
 
 						<div role="tabpanel" class="tab-pane" id="despesasadicionais">
 
-							<form method="POST" action="registraManutencaoLavoura">
+							<form method="POST" action="registraDespesasAdd">
 								<div class="col-lg-6">
 
 									<h3>Despesas adicionais</h3>
@@ -766,17 +766,17 @@
 									</div>
 									<h3></h3>
 									<div class="form-inline">
-										<label class="control-label" for="tipo_manutencao">Tipo da despesa:</label>
+										<label class="control-label" for="tipo_despesa">Tipo da despesa:</label>
 										<select class="form-control" style="width: 25%"
-											name="tipo_manutencao">
+											name="tipo_despesa">
 											<option>Multa</option>
 											<option>ITR</option>
 											<option>imposto</option>
 											<option>Combustível</option>
 											<option>Taxa</option>
 											<option>Outros</option>
-										</select> <label class="control-label" for="area_p">
-											Despesa: </label> <input name="area_p" type="text"
+										</select> <label class="control-label" for="despesa">
+											Despesa: </label> <input name="despesa" type="text"
 											class="form-control" style="width: 25%">
 									</div>
 									<hr>

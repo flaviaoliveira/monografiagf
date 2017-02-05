@@ -15,18 +15,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import client.Tabelas.Beneficiamento;
 import client.Tabelas.Colheita;
+import client.Tabelas.DespesaAdd;
 import client.Tabelas.Insumos;
 import client.Tabelas.ManutencaoEquipamento;
 import client.Tabelas.ManutencaoLavoura;
 import client.Tabelas.Plantio;
+import client.Tabelas.PosColheita;
+import client.Tabelas.PrePlantio;
 import client.Tabelas.Produtor;
 import client.Tabelas.Propriedade;
 import client.tabelasDAO.BeneficiamentoDAO;
 import client.tabelasDAO.ColheitaDAO;
-import client.tabelasDAO.InsumosDAO;
+import client.tabelasDAO.DespesasAddDAO;
+import client.tabelasDAO.InsumoDAO;
 import client.tabelasDAO.ManutencaoEquipamentosDAO;
 import client.tabelasDAO.ManutencaoLavouraDAO;
 import client.tabelasDAO.PlantioDAO;
+import client.tabelasDAO.PosColheitaDAO;
+import client.tabelasDAO.PrePlantioDAO;
 import client.tabelasDAO.PropriedadeDAO;
 
 
@@ -47,6 +53,20 @@ public class DespesasController {
 	    return "telas/despesas";
 	  }
   
+	// --------------------------------PREPLANTIO---------------------------------------------------
+		@RequestMapping(value = "registraPrePlantio", method = RequestMethod.POST)
+		  public String RegistraPrePlantio(@Valid PrePlantio p , BindingResult result,
+				                           HttpSession session) throws SQLException{
+			if(result.hasErrors()){
+				return "redirect:despesas";
+			}
+			PrePlantioDAO pd = new PrePlantioDAO();
+			pd.inserePrePlantio(p);
+			
+			return "redirect:inicio";	
+		}
+	
+	
 	// --------------------------------PLANTIO---------------------------------------------------
 	@RequestMapping(value = "registraPlantio", method = RequestMethod.POST)
 	  public String RegistraPlantio(@Valid Plantio p , BindingResult result,
@@ -74,6 +94,19 @@ public class DespesasController {
 		return "redirect:inicio";	
 	}
 	
+	// ----------------------------POSCOLHEITA------------------------------------
+	@RequestMapping(value = "registraPosColheita", method = RequestMethod.POST)
+	  public String RegistraPosColheita(@Valid PosColheita p , BindingResult result,
+			                           HttpSession session) throws SQLException{
+		if(result.hasErrors()){
+			return "redirect:despesas";
+		}
+		PosColheitaDAO pd = new PosColheitaDAO();
+		pd.inserePosColheita(p);
+		
+		return "redirect:inicio";	
+	}
+	
 	// ----------------------------INSUMOS------------------------------------
 		@RequestMapping(value = "registraInsumo", method = RequestMethod.POST)
 		  public String RegistraInsumos(@Valid Insumos p , BindingResult result,
@@ -81,7 +114,7 @@ public class DespesasController {
 			if(result.hasErrors()){
 				return "redirect:despesas";
 			}
-			InsumosDAO pd = new InsumosDAO();
+			InsumoDAO pd = new InsumoDAO();
 			pd.insereInsumos(p);
 			
 			return "redirect:inicio";	
@@ -127,6 +160,23 @@ public class DespesasController {
 					
 					return "redirect:inicio";	
 				}
+				
+				
+				// ----------------------------DESOESASADD------------------------------------
+				@RequestMapping(value = "registraDespesasAdd", method = RequestMethod.POST)
+				  public String RegistraDespesasAdd(@Valid DespesaAdd p , BindingResult result,
+						                           HttpSession session) throws SQLException{
+					if(result.hasErrors()){
+						return "redirect:despesas";
+					}
+					DespesasAddDAO pd = new DespesasAddDAO();
+					pd.insereDespesaAdd(p);
+					
+					return "redirect:inicio";	
+				}
 }
+
+
+
 
 

@@ -21,49 +21,68 @@ public class PrePlantio implements Serializable{
 	@Id
 	@Column
 	@GeneratedValue
-	private Integer id_plantio;
+	private Integer id_preplantio;
 	
 	@Id
 	@Column
 	@NotNull
 	private Integer id_propriedade;
 		
-	
 	@Column
 	@NotNull
 	private Date data;
 	
+	@Column
+	private float area_t;
 	
 	@Column
-	private float area_p;
+	private Integer n_covas;
 	
-	@Id
 	@Column
 	private Integer qnt_func;
-	
 	
 	@Column
 	private float despesa_func;
 	
-	@Id
 	@Column
-	private Integer qnt_muda;
-	
+	private String tipo_adubo;
 	
 	@Column
-	private float despesa_muda;
-	
+	private float qnt_adubo;
+		
+	@Column
+	private float despesa_adubo;
 	
 	@Column
-	private String tipo_muda;
+	private String tipo_calcario;
 	
+	@Column
+	private float qnt_calcario;
+		
+	@Column
+	private float despesa_calcario;
 	
-	public Integer getId_plantio() {
-		return id_plantio;
+	@Column
+	private String tipo_herbicida;
+	
+	@Column
+	private float qnt_herbicida;
+		
+	@Column
+	private float despesa_herbicida;
+	
+	@Column
+	private String descricao;
+	
+	@Column
+	private float despesa_outro;
+
+	public Integer getId_preplantio() {
+		return id_preplantio;
 	}
 
-	public void setId_plantio(Integer id_plantio) {
-		this.id_plantio = id_plantio;
+	public void setId_preplantio(Integer id_preplantio) {
+		this.id_preplantio = id_preplantio;
 	}
 
 	public Integer getId_propriedade() {
@@ -82,12 +101,20 @@ public class PrePlantio implements Serializable{
 		this.data = data;
 	}
 
-	public float getArea_p() {
-		return area_p;
+	public float getArea_t() {
+		return area_t;
 	}
 
-	public void setArea_p(float area_p) {
-		this.area_p = area_p;
+	public void setArea_t(float area_t) {
+		this.area_t = area_t;
+	}
+
+	public Integer getN_covas() {
+		return n_covas;
+	}
+
+	public void setN_covas(Integer n_covas) {
+		this.n_covas = n_covas;
 	}
 
 	public Integer getQnt_func() {
@@ -106,29 +133,94 @@ public class PrePlantio implements Serializable{
 		this.despesa_func = despesa_func;
 	}
 
-	public Integer getQnt_muda() {
-		return qnt_muda;
+	public String getTipo_adubo() {
+		return tipo_adubo;
 	}
 
-	public void setQnt_muda(Integer qnt_muda) {
-		this.qnt_muda = qnt_muda;
+	public void setTipo_adubo(String tipo_adubo) {
+		this.tipo_adubo = tipo_adubo;
 	}
 
-	public float getDespesa_muda() {
-		return despesa_muda;
+	public float getQnt_adubo() {
+		return qnt_adubo;
 	}
 
-	public void setDespesa_muda(float despesa_muda) {
-		this.despesa_muda = despesa_muda;
+	public void setQnt_adubo(float qnt_adubo) {
+		this.qnt_adubo = qnt_adubo;
 	}
 
-	public String getTipo_muda() {
-		return tipo_muda;
+	public float getDespesa_adubo() {
+		return despesa_adubo;
 	}
 
-	public void setTipo_muda(String tipo_muda) {
-		this.tipo_muda = tipo_muda;
+	public void setDespesa_adubo(float despesa_adubo) {
+		this.despesa_adubo = despesa_adubo;
 	}
+
+	public String getTipo_calcario() {
+		return tipo_calcario;
+	}
+
+	public void setTipo_calcario(String tipo_calcario) {
+		this.tipo_calcario = tipo_calcario;
+	}
+
+	public float getQnt_calcario() {
+		return qnt_calcario;
+	}
+
+	public void setQnt_calcario(float qnt_calcario) {
+		this.qnt_calcario = qnt_calcario;
+	}
+
+	public float getDespesa_calcario() {
+		return despesa_calcario;
+	}
+
+	public void setDespesa_calcario(float despesa_calcario) {
+		this.despesa_calcario = despesa_calcario;
+	}
+
+	public String getTipo_herbicida() {
+		return tipo_herbicida;
+	}
+
+	public void setTipo_herbicida(String tipo_herbicida) {
+		this.tipo_herbicida = tipo_herbicida;
+	}
+
+	public float getQnt_herbicida() {
+		return qnt_herbicida;
+	}
+
+	public void setQnt_herbicida(float qnt_herbicida) {
+		this.qnt_herbicida = qnt_herbicida;
+	}
+
+	public float getDespesa_herbicida() {
+		return despesa_herbicida;
+	}
+
+	public void setDespesa_herbicida(float despesa_herbicida) {
+		this.despesa_herbicida = despesa_herbicida;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public float getDespesa_outro() {
+		return despesa_outro;
+	}
+
+	public void setDespesa_outro(float despesa_outro) {
+		this.despesa_outro = despesa_outro;
+	}
+		
 	
 }
 
@@ -136,7 +228,7 @@ class PrePlantio_PropriedadeId implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
-	private Integer id_plantio;
+	private Integer id_preplantio;
 	private Integer id_propriedade;
 	
 	@Override
@@ -146,8 +238,8 @@ class PrePlantio_PropriedadeId implements Serializable {
 	
 	@Override
 	public boolean equals(Object obj) {
-		if (id_propriedade.equals(((Plantio)obj).getId_propriedade())
-				&& id_plantio.equals(((Plantio)obj).getId_plantio())) {
+		if (id_propriedade.equals(((PrePlantio)obj).getId_propriedade())
+				&& id_preplantio.equals(((PrePlantio)obj).getId_preplantio())) {
 			return true;
 		}
 		return false;

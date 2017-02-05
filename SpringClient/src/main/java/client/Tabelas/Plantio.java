@@ -57,6 +57,12 @@ public class Plantio implements Serializable{
 	@Column
 	private String tipo_muda;
 	
+	@Column
+	private String descricao;
+	
+	@Column
+	private float despesa_outro;
+	
 	
 	public Integer getId_plantio() {
 		return id_plantio;
@@ -129,6 +135,23 @@ public class Plantio implements Serializable{
 	public void setTipo_muda(String tipo_muda) {
 		this.tipo_muda = tipo_muda;
 	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public float getDespesa_outro() {
+		return despesa_outro;
+	}
+
+	public void setDespesa_outro(float despesa_outro) {
+		this.despesa_outro = despesa_outro;
+	}
+	
 	
 }
 
