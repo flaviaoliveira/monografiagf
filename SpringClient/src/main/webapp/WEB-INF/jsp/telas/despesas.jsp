@@ -41,6 +41,8 @@
 							aria-controls="plantio" role="tab" data-toggle="tab">Plantio</a></li>
 						<li role="presentation"><a href="#colheita"
 							aria-controls="colheita" role="tab" data-toggle="tab">Colheita</a></li>
+						<li role="presentation"><a href="#poscolheita"
+							aria-controls="colheita" role="tab" data-toggle="tab">Pos_Colheita</a></li>
 						<li role="presentation"><a href="#beneficiamento"
 							aria-controls="beneficiamento" role="tab" data-toggle="tab">Beneficiamento</a></li>
 						<li role="presentation"><a href="#insumos"
@@ -49,6 +51,9 @@
 						<li role="presentation"><a href="#manutencao"
 							aria-controls="manutencao" role="tab" data-toggle="tab">Manutenção
 						</a></li>
+						<li role="presentation"><a href="#despesasadicionais"
+							aria-controls="manutencao" role="tab" data-toggle="tab">Despesas
+								Adicionais </a></li>
 
 					</ul>
 
@@ -272,6 +277,7 @@
 						</div>
 
 
+
 						<div role="tabpanel" class="tab-pane" id="colheita">
 
 							<form method="POST" action="registraColheita">
@@ -329,7 +335,7 @@
 									</div>
 
 									<div class="form-inline">
-										<label class="control-label" for="qnt_viagens">Numero
+										<label class="control-label" for="qnt_viagens">Número
 											de viagens: </label> <input name="n_viagens" type="text"
 											class="form-control" style="width: 25%"> <label
 											class="control-label" for="cdespesa_viagens">Despesa:
@@ -362,63 +368,177 @@
 
 						</div>
 
+
+
+
+
+						<div role="tabpanel" class="tab-pane" id="poscolheita">
+
+							<form method="POST" action="">
+								<div class="col-lg-6">
+
+									<h3>Informações</h3>
+									<div class="form-inline">
+										<div class="form-group" style="width: 50%">
+											<label for="lavoura">Lavoura:</label> <select
+												class="form-control" id="sel1" name="id_propriedade">
+												<c:forEach var="lavoura" items="${lavouras}">
+													<option value="${lavoura.id_propriedade}">${lavoura.nome}</option>
+												</c:forEach>
+											</select>
+										</div>
+										<div class="form-group">
+											<label class="control-label" for="data">Data:</label> <input
+												name="data" type="date" class="form-control">
+										</div>
+									</div>
+									<h3></h3>
+
+									<hr>
+									<div class="form-group">
+										<h3>Mão de Obra</h3>
+									</div>
+									<div class="form-inline">
+										<label class="control-label" for="qnt_func">Qtd. de
+											funcionários:</label> <input name="qnt_func" type="text"
+											class="form-control" style="width: 25%"> <label
+											class="control-label" for="despesa_func">Despesa: </label> <input
+											name="despesa_func" type="text" class="form-control"
+											style="width: 25%">
+									</div>
+									<hr>
+
+
+								</div>
+								<div class="col-lg-6">
+
+									<div class="form-group">
+										<h3>Café no secador</h3>
+									</div>
+
+									<div class="form-inline">
+										<label class="control-label" for="qnt_sacas">Qtd.:</label> <input
+											name="qnt_sacas" type="text" class="form-control"
+											style="width: 20%"> <label class="control-label"
+											for="qnt_sacas">Hrs. :</label> <input name="hrs_secador"
+											type="text" class="form-control" style="width: 20%">
+										<label class="control-label" for="despesa_saca">Despesa:</label>
+										<input name="despesa_saca" type="text" class="form-control"
+											style="width: 20%">
+
+									</div>
+									<div class="form-group"></div>
+
+									<hr>
+									<div class="form-group">
+										<h3>Outros</h3>
+									</div>
+
+									<div class="form-inline">
+										<label class="control-label" for="descricao">Descrição:</label>
+										<input name="descricao" type="text" class="form-control"
+											style="width: 51%"> <label class="control-label"
+											for="descricao">Despesa:</label> <input name="despesa_outro"
+											type="text" class="form-control" style="width: 20%">
+									</div>
+									<h3></h3>
+
+									<div class="form-group pull-right">
+										<button id="salvar" type="submit" value="salvar"
+											class="btn btn-info btn-block">Salvar</button>
+									</div>
+
+								</div>
+
+							</form>
+
+
+						</div>
+
+
+
+
+
 						<div role="tabpanel" class="tab-pane" id="beneficiamento">
 
 							<form method="POST" action="registraBeneficiamento">
 								<div class="col-lg-6">
 
 									<h3>Informações</h3>
-									<div class="form-group">
-										<label class="control-label" for="data">Data de
-											ocorência:</label> <input name="data" type="date"
-											class="form-control">
+									<div class="form-inline">
+										<div class="form-group" style="width: 50%">
+											<label for="lavoura">Lavoura:</label> <select
+												class="form-control" id="sel1" name="id_propriedade">
+												<c:forEach var="lavoura" items="${lavouras}">
+													<option value="${lavoura.id_propriedade}">${lavoura.nome}</option>
+												</c:forEach>
+											</select>
+										</div>
+										<div class="form-group">
+											<label class="control-label" for="data">Data:</label> <input
+												name="data" type="date" class="form-control">
+										</div>
 									</div>
+									<h3></h3>
 
+									<hr>
 									<div class="form-group">
-										<label for="lavoura">Lavoura:</label> <select
-											class="form-control" id="sel1" name="id_propriedade">
-											<c:forEach var="lavoura" items="${lavouras}">
-												<option value="${lavoura.id_propriedade}">${lavoura.nome}</option>
-											</c:forEach>
-										</select>
+										<h3>Mão de Obra</h3>
 									</div>
-
-									<div class="form-group">
-										<label class="control-label" for="qnt_func">Número de
+									<div class="form-inline">
+										<label class="control-label" for="qnt_func">Qtd. de
 											funcionários:</label> <input name="qnt_func" type="text"
-											class="form-control">
+											class="form-control" style="width: 25%"> <label
+											class="control-label" for="despesa_func">Despesa: </label> <input
+											name="despesa_func" type="text" class="form-control"
+											style="width: 25%">
 									</div>
-
+									<hr>
 									<div class="form-group">
-										<label class="control-label" for="despesa_func">Despesa
-											com funcionários:</label> <input name="despesa_func" type="text"
-											class="form-control">
+										<h3>Limpeza na máquina</h3>
+									</div>
+									<div class="form-inline">
+										<label class="control-label" for="qnt_sacas">Qtd.(bag):</label>
+										<input name="qnt_sacas" type="text" class="form-control"
+											style="width: 20%"> <label class="control-label"
+											for="qnt_sacas">Hrs. :</label> <input name="hrs_secador"
+											type="text" class="form-control" style="width: 20%">
+										<label class="control-label" for="despesa_saca">Despesa:</label>
+										<input name="despesa_saca" type="text" class="form-control"
+											style="width: 20%">
+
 									</div>
 								</div>
+
 								<div class="col-lg-6">
-
 									<div class="form-group">
-										<h3>Café</h3>
+										<h3>Outros</h3>
 									</div>
 
+									<div class="form-inline">
+										<label class="control-label" for="descricao">Descrição:</label>
+										<input name="descricao" type="text" class="form-control"
+											style="width: 51%"> <label class="control-label"
+											for="descricao">Despesa:</label> <input name="despesa_outro"
+											type="text" class="form-control" style="width: 20%">
+									</div>
+									<hr>
 									<div class="form-group">
-										<label class="control-label" for="qnt_café">Quantidade
-											de café:</label> <input name="qnt_café" type="text"
-											class="form-control">
+										<h3>Final do beneficiamento</h3>
+									</div>
+									<div class="form-inline">
+										<label class="control-label" for="qnt_final">Qtd. de
+											sacas:</label> <input name="qnt_func" type="text"
+											class="form-control" style="width: 25%"> <label
+											class="control-label" for="valor_saca">Valor da saca
+											vendida: </label> <input name="despesa_func" type="text"
+											class="form-control" style="width: 25%">
 									</div>
 
-									<div class="form-group">
-										<label class="control-label" for="horas">Horas de
-											secador:</label> <input name="horas" type="text" class="form-control">
-									</div>
 
-									<div class="form-group">
-										<label class="control-label" for="despesa_horas">Custo
-											da hora de secador:</label> <input name="despesa_horas" type="text"
-											class="form-control">
-									</div>
+									<h3></h3>
 
-									<div class="form-group">
+									<div class="form-group pull-right">
 										<button id="salvar" type="submit" value="salvar"
 											class="btn btn-info btn-block">Salvar</button>
 									</div>
@@ -436,37 +556,40 @@
 								<div class="col-lg-6">
 
 									<h3>Informações</h3>
-									<div class="form-group">
-										<label class="control-label" for="data">Data de
-											ocorência:</label> <input name="data" type="date"
+									<div class="form-inline">
+										<div class="form-group" style="width: 50%">
+											<label for="lavoura">Lavoura:</label> <select
+												class="form-control" id="sel1" name="id_propriedade">
+												<c:forEach var="lavoura" items="${lavouras}">
+													<option value="${lavoura.id_propriedade}">${lavoura.nome}</option>
+												</c:forEach>
+											</select>
+										</div>
+										<div class="form-group">
+											<label class="control-label" for="data">Data:</label> <input
+												name="data" type="date" class="form-control">
+										</div>
+									</div>
+									<h3></h3>
+									<div class="form-inline">
+										<label class="control-label" for="area_p">Área
+											trabalhada(%):</label> <input name="area_p" type="text"
 											class="form-control">
+									</div>
+									<hr>
+									<div class="form-group">
+										<h3>Mão de Obra</h3>
 									</div>
 
-									<div class="form-group">
-										<label for="lavoura">Lavoura:</label> <select
-											class="form-control" id="sel1" name="id_propriedade">
-											<c:forEach var="lavoura" items="${lavouras}">
-												<option value="${lavoura.id_propriedade}">${lavoura.nome}</option>
-											</c:forEach>
-										</select>
+									<div class="form-inline">
+										<label class="control-label" for="qnt_func">Qtd. de
+											funcionários:</label> <input name="qnt_func" type="text"
+											class="form-control" style="width: 25%"> <label
+											class="control-label" for="despesa_func">Despesa: </label> <input
+											name="despesa_func" type="text" class="form-control"
+											style="width: 25%">
 									</div>
 
-									<div class="form-group">
-										<label class="control-label" for="area">Área
-											trabalhada(%):</label> <input name="area" type="text"
-											class="form-control">
-									</div>
-
-									<div class="form-group">
-										<label class="control-label" for="qnt_func">Quantidade
-											de funcionários:</label> <input name="qnt_func" type="text"
-											class="form-control">
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="despesa_func">Despesa
-											com funcionários:</label> <input name="despesa_func" type="text"
-											class="form-control">
-									</div>
 
 								</div>
 								<div class="col-lg-6">
@@ -475,28 +598,37 @@
 										<h3>Insumo</h3>
 									</div>
 
-									<div class="form-group">
-										<label class="control-label" for="tipo_insumos">Tipo:</label>
-										<input name="tipo_insumos" type="text" class="form-control">
+									<div class="form-inline">
+										<label class="control-label" for="tipo_adubo">Tipo:</label> <select
+											class="form-control" style="width: 20%" id="sel1"
+											name="tipo_adubo">
+											<option>I1</option>
+											<option>I2</option>
+											<option>Outros</option>
+										</select> <label class="control-label" for="qnt_adubo">Qtd.:</label> <input
+											name="qnt_adubo" type="text" class="form-control"
+											style="width: 20%"> <label class="control-label"
+											for="despesa_adubo">Despesa:</label> <input
+											name="despesa_adubo" type="text" class="form-control"
+											style="width: 25%">
 									</div>
 
 									<div class="form-group">
-										<label class="control-label" for="qnt_insumos">Quantidade
-											de insumo:</label> <input name="qnt_insumos" type="text"
-											class="form-control">
+										<h3>Outros</h3>
 									</div>
 
-									<div class="form-group">
-										<label class="control-label" for="despesa_insumos">Despesa
-											com insumo:</label> <input name="despesa_insumos" type="text"
-											class="form-control">
+									<div class="form-inline">
+										<label class="control-label" for="descricao">Descrição:</label>
+										<input name="descricao" type="text" class="form-control"
+											style="width: 51%"> <label class="control-label"
+											for="descricao">Despesa:</label> <input name="despesa_outro"
+											type="text" class="form-control" style="width: 20%">
 									</div>
-
-									<div class="form-group">
+									<h3></h3>
+									<div class="form-group pull-right">
 										<button id="salvar" type="submit" value="salvar"
 											class="btn btn-info btn-block">Salvar</button>
 									</div>
-
 								</div>
 
 
@@ -514,53 +646,50 @@
 
 									<h3>Manutenção da lavoura</h3>
 
-
-
-									<div class="form-group">
-										<label class="control-label" for="tipo_manutencao">Tipo:</label>
-										<select class="form-control" name="tipo_manutencao">
+									<h3>Informações</h3>
+									<div class="form-inline">
+										<div class="form-group" style="width: 50%">
+											<label for="lavoura">Lavoura:</label> <select
+												class="form-control" id="sel1" name="id_propriedade">
+												<c:forEach var="lavoura" items="${lavouras}">
+													<option value="${lavoura.id_propriedade}">${lavoura.nome}</option>
+												</c:forEach>
+											</select>
+										</div>
+										<div class="form-group">
+											<label class="control-label" for="data">Data:</label> <input
+												name="data" type="date" class="form-control">
+										</div>
+									</div>
+									<h3></h3>
+									<div class="form-inline">
+										<label class="control-label" for="area_p">Área
+											trabalhada(%):</label> <input name="area_p" type="text"
+											class="form-control" style="width: 25%"> <label
+											class="control-label" for="tipo_manutencao">Serviço:</label>
+										<select class="form-control" style="width: 25%"
+											name="tipo_manutencao">
 											<option>Capina</option>
 											<option>Retirada de erva daninha</option>
 											<option>Estrada</option>
 										</select>
 									</div>
-
+									<hr>
 									<div class="form-group">
-										<label class="control-label" for="data">Data de
-											ocorência:</label> <input name="data" type="date"
-											class="form-control">
+										<h3>Mão de Obra</h3>
 									</div>
 
-									<div class="form-group">
-										<label for="lavoura">Lavoura:</label> <select
-											class="form-control" id="sel1" name="id_propriedade">
-											<c:forEach var="lavoura" items="${lavouras}">
-												<option value="${lavoura.id_propriedade}">${lavoura.nome}</option>
-											</c:forEach>
-										</select>
+									<div class="form-inline">
+										<label class="control-label" for="qnt_func">Qtd. de
+											funcionários:</label> <input name="qnt_func" type="text"
+											class="form-control" style="width: 25%"> <label
+											class="control-label" for="despesa_func">Despesa: </label> <input
+											name="despesa_func" type="text" class="form-control"
+											style="width: 25%">
 									</div>
 
-
-
-
-									<div class="form-group">
-										<label class="control-label" for="area">Área
-											trabalhada(%):</label> <input name="area" type="text"
-											class="form-control">
-									</div>
-
-									<div class="form-group">
-										<label class="control-label" for="qnt_func">Quantidade
-											de funcionários:</label> <input name="qnt_func" type="text"
-											class="form-control">
-									</div>
-									<div class="form-group">
-										<label class="control-label" for="despesa_func">Despesa
-											com funcionários:</label> <input name="despesa_func" type="text"
-											class="form-control">
-									</div>
-
-									<div class="form-group">
+									<h3></h3>
+									<div class="form-group pull-right">
 										<button id="salvar" type="submit" value="salvar"
 											class="btn btn-info btn-block">Salvar</button>
 									</div>
@@ -574,37 +703,31 @@
 										<h3>Manutenção de equipamentos</h3>
 									</div>
 
-									<div class="form-group">
+									<div class="form-inline">
 										<label class="control-label" for="covas_numeros">Data:</label>
-										<input name="data" type="date" class="form-control">
-									</div>
-
-									<div class="form-group">
-										<label class="control-label" for="equipamento">Equipamento:</label>
+										<input name="data" type="date" class="form-control"> <label
+											class="control-label" for="equipamento">Equipamento:</label>
 										<select class="form-control" name="equipamento">
 											<option>Secador</option>
 											<option>Veículo</option>
 											<option>Outros</option>
 										</select>
 									</div>
-
-									<div class="form-group">
+									<h3></h3>
+									<div class="form-inline">
 										<label class="control-label" for="acao">Ação feita:</label> <select
 											class="form-control" name="acao">
 											<option>Manutenção</option>
 											<option>Obtenção de um novo</option>
 											<option>Peça</option>
 											<option>Outros</option>
-										</select>
-									</div>
-
-									<div class="form-group">
-										<label class="control-label" for="despesa">Valor gasto</label>
-										<input name="despesa" type="text" class="form-control">
+										</select> <label class="control-label" for="despesa">Valor
+											gasto</label> <input name="despesa" type="text" class="form-control">
 									</div>
 
 
-									<div class="form-group">
+									<h3></h3>
+									<div class="form-group pull-right">
 										<button id="salvar" type="submit" value="salvar"
 											class="btn btn-info btn-block">Salvar</button>
 									</div>
@@ -615,6 +738,60 @@
 							</form>
 
 						</div>
+
+
+
+
+
+						<div role="tabpanel" class="tab-pane" id="despesasadicionais">
+
+							<form method="POST" action="registraManutencaoLavoura">
+								<div class="col-lg-6">
+
+									<h3>Despesas adicionais</h3>
+
+									<div class="form-inline">
+										<div class="form-group" style="width: 50%">
+											<label for="lavoura">Lavoura:</label> <select
+												class="form-control" id="sel1" name="id_propriedade">
+												<c:forEach var="lavoura" items="${lavouras}">
+													<option value="${lavoura.id_propriedade}">${lavoura.nome}</option>
+												</c:forEach>
+											</select>
+										</div>
+										<div class="form-group">
+											<label class="control-label" for="data">Data:</label> <input
+												name="data" type="date" class="form-control">
+										</div>
+									</div>
+									<h3></h3>
+									<div class="form-inline">
+										<label class="control-label" for="tipo_manutencao">Tipo da despesa:</label>
+										<select class="form-control" style="width: 25%"
+											name="tipo_manutencao">
+											<option>Multa</option>
+											<option>ITR</option>
+											<option>imposto</option>
+											<option>Combustível</option>
+											<option>Taxa</option>
+											<option>Outros</option>
+										</select> <label class="control-label" for="area_p">
+											Despesa: </label> <input name="area_p" type="text"
+											class="form-control" style="width: 25%">
+									</div>
+									<hr>
+									
+									<h3></h3>
+									<div class="form-group pull-right">
+										<button id="salvar" type="submit" value="salvar"
+											class="btn btn-info btn-block">Salvar</button>
+									</div>
+								</div>
+
+							</form>
+						</div>
+
+
 
 					</div>
 

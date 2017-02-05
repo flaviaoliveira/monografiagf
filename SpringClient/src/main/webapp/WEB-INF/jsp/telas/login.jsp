@@ -80,7 +80,7 @@
 	
 
 					<!-- --------------Modal -Cadastro -------------------------- -->
-					<div id="Cadastrar" class="modal fade" role="dialog">
+					<div id="Cadastrar" class="modal fade" role="dialog" >
 						<div class="modal-dialog">
 							<div class="modal-content">
 
@@ -139,8 +139,8 @@
 
 								</div>
 								<!-- /.col-lg-4 -->
-								<div class="col-lg-4 text-center">
-									<img class="img-fluid img-circle"
+								<div class="col-lg-4 text-center"> 
+									<img class="img-fluid img-circle" 
 										src="/assets/bootstrap-3.3.5-dist/img/img2.png">
 									<h2>Adubação e Calagem</h2>
 									<p>Faça a recomendação de adubação e calagem de forma fácil.</p>

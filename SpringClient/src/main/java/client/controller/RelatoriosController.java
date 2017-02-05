@@ -8,9 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 public class RelatoriosController {
 	
-	@RequestMapping("relatorios")
-	  public String cadastro() {
-	    return "telas/relatorio";
+	@RequestMapping("relatorioEspecifico")
+	  public String relatorioespecifico() {
+	    return "telas/relatorioEspecifico";
 	  }
-
+	
+	@RequestMapping("relatorioGeral")
+	  public String relatoriogeral() {
+	    return "telas/relatorioGeral";
+	  }
 }

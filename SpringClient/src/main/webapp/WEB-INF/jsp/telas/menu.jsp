@@ -16,6 +16,10 @@
 	src="<c:url value="/assets/jquery/jquery-1.11.3.min.js" />"></script>
 <script type="text/javascript"
 	src="<c:url value="/assets/bootstrap-3.3.5-dist/js/bootstrap.min.js" />"></script>
+<script type="text/javascript"
+	src="<c:url value="/assets/bootstrap-3.3.5-dist/js/chart.min.js" />"></script>
+	
+
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -57,8 +61,8 @@
         <a class="dropdown-toggle" data-toggle="dropdown">Relatório 
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="">Um ano específico</a></li>
-          <li><a href="">Geral</a></li>    
+          <li><a href="relatorioEspecifico">Um ano específico</a></li>
+          <li><a href="relatorioGeral">Geral</a></li>    
         </ul>
         
           <li class="dropdown">
