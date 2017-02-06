@@ -11,7 +11,7 @@
 <title>Gestor Cafeeiro</title>
 
 </head>
-<body>
+<body onload="loadPage()">
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<div>
@@ -60,46 +60,54 @@
 							</div>
 						</div>
 					</form>
+					
+					<hr>
+					<div class="col-sm-12" id="graphDiv"
+						style="margin-top: 60px; margin-bottom: 60px; height: 300px;">
+						<div class="col-sm-1" id="legendasGrafico">
+							<span>Despesas</span>
+						</div>
+						<div class="col-sm-11" id="graph" style="height: 100%"></div>
+					</div>
+
+					<div class="col-sm-12" id="listDiv">
+						<ul id="lavouraInforma" class="list-group">
+						</ul>
+					</div>
+
+
+					<div class="modal fade" id="modalLavoura" role="dialog">
+						<div class="modal-dialog">
+
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Detalhes</h4>
+								</div>
+								<div class="modal-body">
+									<div class="body-content col-sm-12">
+
+										<span id="detalhesColuna"></span>
+
+									</div>
+								</div>
+								<div class="modal-footer">
+
+									<div class="col-sm-12">
+										<button id="btn-insert" class="btn btn-primary btn-cancel"
+											data-dismiss="modal">Fechar</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
 				</div>
 			</div>
 		</div>
+
+
 	</div>
-
-	<div class="col-sm-12" id="graphDiv" style="margin-top: 60px; margin-bottom: 60px; height: 300px;">
-		<div class="col-sm-1" id="legendasGrafico" ><span >Despesas</span></div>
-		<div class="col-sm-11" id="graph" style="height: 100%"></div>
-	</div>
-
-	<div class="col-sm-12" id="listDiv">
-		<ul id="lavouraInforma" class="list-group">
-		</ul>
-	</div>
-
-
-<div class="modal fade" id="modalLavoura" role="dialog">
-	<div class="modal-dialog">
-
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Detalhes</h4>
-			</div>
-			<div class="modal-body">
-				<div class="body-content col-sm-12">
-
-					<span id="detalhesColuna"></span>
-
-				</div>
-			</div>
-			<div class="modal-footer">
-
-				<div class="col-sm-12">
-				<button id="btn-insert" class="btn btn-primary btn-cancel" data-dismiss="modal">Fechar</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
 
 

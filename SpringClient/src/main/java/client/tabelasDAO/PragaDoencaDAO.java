@@ -26,7 +26,34 @@ public class PragaDoencaDAO {
 		  manager.getTransaction().commit();
 		  manager.close();	
 	 }
+	 public void deletaPragaDoenca(Integer id){
+		  manager = DBManager.getEntityManager();
+          manager.getTransaction().begin();
+          PragasDoencas pd = manager.find(PragasDoencas.class, id);
+		  if(pd!=null){
+			  manager.remove(pd);
+		  }
+		  manager.flush();
+		  manager.clear();
+		  manager.getTransaction().commit();
+		  manager.close();	
+	 }
 	 
+	 public void editaPragaDoença(PragasDoencas pd){
+		 manager = DBManager.getEntityManager();
+         manager.getTransaction().begin();
+         PragasDoencas p = manager.find(PragasDoencas.class,pd.getId_pragas());
+         if(p!=null){
+        	 p.setData_fim(pd.getData_fim());
+        	 p.setData_inicio(pd.getData_inicio());
+        	 p.setId_propriedade(pd.getId_propriedade());
+         }
+         manager.flush();
+		 manager.clear();
+		 manager.getTransaction().commit();
+		 manager.close();	
+		 
+	 }
 	 public List <Tipos_Pragas> ListaPD()throws SQLException {
 			
 			manager = DBManager.getEntityManager();
@@ -45,6 +72,5 @@ public class PragaDoencaDAO {
 		        
 			return results;
 		}
-	
 	 
 }

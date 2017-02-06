@@ -27,6 +27,8 @@ public class PropriedadeDAO {
 		  manager.close();	
 	 }
 	 
+
+	 
 	 public void inserePropriedadeProdutor(Propriedade_Produtor propriedade) throws SQLException{	
 		 manager = DBManager.getEntityManager();
           manager.getTransaction().begin();		     
@@ -37,6 +39,18 @@ public class PropriedadeDAO {
 		  manager.close();	
 	 }
 	 
+	 public void deletaPropriedade(Propriedade propriedade) throws SQLException{	
+		  manager = DBManager.getEntityManager();
+         manager.getTransaction().begin();	
+         Propriedade p = manager.find(Propriedade.class, propriedade.getId_propriedade());
+         if(p!=null){
+       	  manager.remove(p);
+         }	 
+		  manager.flush();
+		  manager.clear();
+		  manager.getTransaction().commit();
+		  manager.close();	
+	 }
 	 
 	 public List<Propriedade> findPropriedade(Integer id_produtor)throws SQLException {
 			manager = DBManager.getEntityManager();
@@ -61,6 +75,28 @@ public class PropriedadeDAO {
 		     
 			return results;
 		}
+	 
+	 
+	 public List<Propriedade> findPropriedadeDeletada(Integer id_prop)throws SQLException {
+			manager = DBManager.getEntityManager();
+	        manager.getTransaction().begin();
+	              		 
+	        TypedQuery<Propriedade>  query = manager.createQuery(
+	        	    "SELECT p "+
+	        	    "FROM Propriedade p  "+
+	        	    "WHERE p.id_propriedade = id_prop", 
+	        	    Propriedade.class);
+	        query.setParameter("id_prop", id_prop);
+			      
+	        
+	         List<Propriedade> results = query.getResultList();
+			 manager.flush();
+		     manager.clear();
+		     manager.getTransaction().commit();
+		     manager.close();
+		     
+			return results;
+	 }
 	 
 	 public Integer idPropriedade(String nome)throws SQLException {
 			

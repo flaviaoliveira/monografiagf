@@ -64,7 +64,7 @@
 											<td><p data-placement="top" data-toggle="tooltip"
 													title="Delete">
 													<button class="btn btn-danger btn-xs" data-title="Delete"
-														data-toggle="modal" data-target="">
+														data-toggle="modal" data-target="#delete">
 														<span class="glyphicon glyphicon-trash"></span>
 													</button>
 												</p></td>
@@ -74,13 +74,35 @@
 							</table>
 						</div>
 
+
+						<!-- Modal -->
+
+
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	
+
+	<div class="modal" id="delete" tabindex="-1" role="dialog"
+		aria-labelledby="modalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Fechar">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="modalLabel">Excluir Item</h4>
+				</div>
+				<div class="modal-body">Deseja realmente excluir este item?</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">Sim</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- Footer -->
 	<footer>

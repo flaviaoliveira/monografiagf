@@ -4,31 +4,31 @@ var lavouras2 = {"valores": [321,131,151,332], "campos": ["campoA", "campoB", "c
 
 
 function loadPage() {
-	loadSelects();
+//	loadSelects();
 	buildGraph();
 	buildList();
 }
 
-function loadSelects(){
-	loadAnos();
-	//loadLavouras();
-
-	function loadAnos(){
-		var selectYears = document.getElementById('anos');
-
-		$("#anos").empty();
-
-		for (var i=0; i< anos.length; i++){
-
-			var options = document.createElement('option');
-			options.appendChild(document.createTextNode(anos[i]));
-
-			selectYears.appendChild(options);
-		}
-		$('#anos').selectpicker('refresh');
-		$('#lavoura').selectpicker('refresh');
-	}
-}
+//function loadSelects(){
+//	loadAnos();
+//	//loadLavouras();
+//
+//	function loadAnos(){
+//		var selectYears = document.getElementById('anos');
+//
+//		$("#anos").empty();
+//
+//		for (var i=0; i< anos.length; i++){
+//
+//			var options = document.createElement('option');
+//			options.appendChild(document.createTextNode(anos[i]));
+//
+//			selectYears.appendChild(options);
+//		}
+//		$('#anos').selectpicker('refresh');
+//		$('#lavoura').selectpicker('refresh');
+//	}
+//}
 
 function buildGraph(){
 
