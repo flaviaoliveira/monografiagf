@@ -12,13 +12,37 @@
    <link
 	href="<c:url value="/assets/bootstrap-3.3.5-dist/css/bootstrap.min.css" />"
 	rel="stylesheet" media="screen">
+  <link
+  href="<c:url value="/assets/css/relatorioEspecifico.css" />"
+  rel="stylesheet" media="screen">
 <script type="text/javascript"
 	src="<c:url value="/assets/jquery/jquery-1.11.3.min.js" />"></script>
 <script type="text/javascript"
 	src="<c:url value="/assets/bootstrap-3.3.5-dist/js/bootstrap.min.js" />"></script>
 <script type="text/javascript"
 	src="<c:url value="/assets/bootstrap-3.3.5-dist/js/chart.min.js" />"></script>
-	
+
+  <!-- Graphs libraries -->
+    <link href="<c:url value="/assets/js/jqPlot/jquery.jqplot.css" />"  rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="<c:url value="/assets/js/jqPlot/jquery.jqplot.js" />"></script>
+
+    <script type="text/javascript" src="<c:url value="/assets/js/jqPlot/plugins/jqplot.dateAxisRenderer.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/assets/js/jqPlot/plugins/jqplot.barRenderer.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/assets/js/jqPlot/plugins/jqplot.categoryAxisRenderer.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/assets/js/jqPlot/plugins/jqplot.donutRenderer.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/assets/js/jqPlot/plugins/jqplot.cursor.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/assets/js/jqPlot/plugins/jqplot.highlighter.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/assets/js/jqPlot/plugins/jqplot.dragable.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/assets/js/jqPlot/plugins/jqplot.trendline.js" />"></script>
+    
+
+    <script type="text/javascript" src="<c:url value="/assets/js/graphLib/graphLib.js" />"></script>
+
+<script type="text/javascript"
+  src="<c:url value="/assets/js/relatorioEspecifico.js" />"></script>
+
+
 
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
