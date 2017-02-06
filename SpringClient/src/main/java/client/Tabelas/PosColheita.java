@@ -13,15 +13,15 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table
-@IdClass(Colheita_PropriedadeId.class)
-public class Colheita implements Serializable{
+@IdClass(PosColheita_PropriedadeId.class)
+public class PosColheita implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@Column
 	@GeneratedValue
-	private Integer id_colheita;
+	private Integer id_poscolheita;
 	
 	@Id
 	@Column
@@ -36,30 +36,31 @@ public class Colheita implements Serializable{
 	private Integer qnt_func;
 		
 	@Column
-	private float qnt_sacas;
+	private float despesa_func;
 	
 	@Column
-	private float despesa_saca;
+	private Integer qnt_cafe;
 	
 	@Column
-	private Integer n_viages;
+	private float hrs_secador;
 	
 	@Column
-	private float despesa_viagens;
+	private float despesa_secador;
 	
 	@Column
 	private String descricao;
 	
 	@Column
 	private float despesa_outro;
+
 	
 
-	public Integer getId_colheita() {
-		return id_colheita;
+	public Integer getId_poscolheita() {
+		return id_poscolheita;
 	}
 
-	public void setId_colheita(Integer id_colheita) {
-		this.id_colheita = id_colheita;
+	public void setId_poscolheita(Integer id_poscolheita) {
+		this.id_poscolheita = id_poscolheita;
 	}
 
 	public Integer getId_propriedade() {
@@ -86,36 +87,36 @@ public class Colheita implements Serializable{
 		this.qnt_func = qnt_func;
 	}
 
-	public float getQnt_sacas() {
-		return qnt_sacas;
+	public float getDespesa_func() {
+		return despesa_func;
 	}
 
-	public void setQnt_sacas(float qnt_sacas) {
-		this.qnt_sacas = qnt_sacas;
+	public void setDespesa_func(float despesa_func) {
+		this.despesa_func = despesa_func;
 	}
 
-	public float getDespesa_saca() {
-		return despesa_saca;
+	public Integer getQnt_cafe() {
+		return qnt_cafe;
 	}
 
-	public void setDespesa_saca(float despesa_saca) {
-		this.despesa_saca = despesa_saca;
+	public void setQnt_cafe(Integer qnt_cafe) {
+		this.qnt_cafe = qnt_cafe;
 	}
 
-	public Integer getN_viages() {
-		return n_viages;
+	public float getHrs_secador() {
+		return hrs_secador;
 	}
 
-	public void setN_viages(Integer n_viages) {
-		this.n_viages = n_viages;
+	public void setHrs_secador(float hrs_secador) {
+		this.hrs_secador = hrs_secador;
 	}
 
-	public float getDespesa_viagens() {
-		return despesa_viagens;
+	public float getDespesa_secador() {
+		return despesa_secador;
 	}
 
-	public void setDespesa_viagens(float despesa_viagens) {
-		this.despesa_viagens = despesa_viagens;
+	public void setDespesa_secador(float despesa_secador) {
+		this.despesa_secador = despesa_secador;
 	}
 
 	public String getDescricao() {
@@ -132,17 +133,15 @@ public class Colheita implements Serializable{
 
 	public void setDespesa_outro(float despesa_outro) {
 		this.despesa_outro = despesa_outro;
-	}
-	
-    
+	}	    
 	
 }
 
-class Colheita_PropriedadeId implements Serializable {
+class PosColheita_PropriedadeId implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;
-	private Integer id_colheita;
+	private Integer id_poscolheita;
 	private Integer id_propriedade;
 	
 	@Override
@@ -152,13 +151,14 @@ class Colheita_PropriedadeId implements Serializable {
 	
 	@Override
 	public boolean equals(Object obj) {
-		if (id_propriedade.equals(((Colheita)obj).getId_propriedade())
-				&& id_colheita.equals(((Colheita)obj).getId_colheita())) {
+		if (id_propriedade.equals(((PosColheita)obj).getId_propriedade())
+				&& id_poscolheita.equals(((PosColheita)obj).getId_poscolheita())) {
 			return true;
 		}
 		return false;
 	}
 	
 }
+
 
 

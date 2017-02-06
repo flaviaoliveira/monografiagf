@@ -56,6 +56,28 @@ public class Insumos implements Serializable{
 	
 	@Column
 	private String tipo_insumos;
+	
+	@Column
+	private String descricao;
+	
+	@Column
+	private float despesa_outro;
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public float getDespesa_outro() {
+		return despesa_outro;
+	}
+
+	public void setDespesa_outro(float despesa_outro) {
+		this.despesa_outro = despesa_outro;
+	}
 
 	public Integer getId_insumos() {
 		return id_insumos;

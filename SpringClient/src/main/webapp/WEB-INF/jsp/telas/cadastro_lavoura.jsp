@@ -20,28 +20,31 @@
 	<!-- Page Content -->
 	<hr>
 	<hr>
-	
+
 	<div class="container" style="width: default">
 
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<form method="POST" action = "validaLavoura" >
-					<div class="form-group">
+					<form method="POST" action="validaLavoura">
+						<div class="form-group">
 							<h2>Regitro de Lavoura</h2>
-					</div>
+						</div>
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label class="control-label" for="nome">Nome da propriedade:</label>
-							    <input name="nome" type="text" maxlength="50" class="form-control">
+								<label class="control-label" for="nome">Nome da
+									lavoura:</label> <input name="nome" type="text" maxlength="50"
+									class="form-control">
 							</div>
 							<div class="form-group">
-								<label class="control-label" for="nome">Tamanho da propriedade(Hectare):</label>
-								<input name="propriedade_tamanho" type="text" maxlength="50" class="form-control">
+								<label class="control-label" for="nome">Tamanho da
+									propriedade(Hectare):</label> <input name="propriedade_tamanho"
+									type="text" maxlength="50" class="form-control">
 							</div>
 							<div class="form-group">
-								<label class="control-label" for="lavoura_tamanho">Área da lavoura(Hectare):</label> 
-								<input name="lavoura_tamanho" type="text" maxlength="50" class="form-control">
+								<label class="control-label" for="lavoura_tamanho">Área
+									da lavoura(Hectare):</label> <input name="lavoura_tamanho" type="text"
+									maxlength="50" class="form-control">
 							</div>
 							<div class="form-group">
 								<label class="control-label" for="estado">Estado:</label> <input
@@ -51,35 +54,50 @@
 								<label class="control-label" for="cidade">Cidade:</label> <input
 									name="cidade" type="text" maxlength="50" class="form-control">
 							</div>
-							
+
 						</div>
 						<div class="col-lg-6">
-						    <div class="form-group">
+							<div class="form-group">
 								<label class="control-label" for="municipio">Municipio/Distrito:</label>
 								<input name="municipio" type="text" class="form-control">
 							</div>
 							<div class="form-group">
-								<label class="control-label" for="covas_numeros">Número de Covas:</label>
-								<input name="covas_numero" type="text"  class="form-control">
+								<label class="control-label" for="covas_numeros">Número
+									de Covas:</label> <input name="covas_numero" type="text"
+									class="form-control">
 							</div>
 							<div class="form-group">
-								<label class="control-label" for="numero_talhao">Número de talhões na propriedade:</label>
-								<input name="numero_talhao" type="text" class="form-control">
-							</div>
-							
-							<div class="form-group">
-								<label class="control-label" for="tipo_cafe">Tipo do café:</label> 
-								<input name="tipo_cafe" type="text" class="form-control">
+								<label class="control-label" for="numero_talhao">Número
+									de talhões na propriedade:</label> <input name="numero_talhao"
+									type="text" class="form-control">
 							</div>
 							<div class="form-group">
-								<label class="control-label" for="altitude">Variedade do café:</label>
-								<input name="variedade" type="text" class="form-control">
+								<label class="control-label" for="altitude">Variedade do
+									café:</label> <select class="form-control" id="sel1"
+									name="variedade">
+									<option>Arábica</option>
+									<option>Robusta</option>
+									<option>Outro</option>
+								</select>
+
 							</div>
 							<div class="form-group">
-							<button value = "validaLavoura" id="validaLavoura" type="submit" class="btn btn-info btn-block">Salvar</button>
+								<label class="control-label" for="tipo_cafe">Tipo do
+									café:</label> <select class="form-control" id="sel1"
+									name="tipo_cafe">
+									<option>Catuaí</option>
+									<option>Bourbon</option>
+									<option>Mundo Novo</option>
+									<option>Outro</option>
+								</select>
+							</div>
+
+							<div class="form-group">
+								<button value="validaLavoura" id="validaLavoura" type="submit"
+									class="btn btn-info btn-block">Salvar</button>
+							</div>
 						</div>
-					</div>
-				 </form>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -96,7 +114,7 @@
 		<!-- /.row -->
 	</footer>
 
-	
+
 	<!-- /.container -->
 
 	<!-- jQuery -->
