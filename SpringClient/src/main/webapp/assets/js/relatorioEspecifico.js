@@ -1,6 +1,5 @@
-var anos = [2010,2011,2012,2013,2014,2015,2016,2017];
-var lavouras = {"valores": [100,200,300,400], "campos": ["campo1", "campo2", "campo3", "campo4"]};
-var lavouras2 = {"valores": [321,131,151,332], "campos": ["campoA", "campoB", "campoC", "campoD"]};
+
+var lavouras = {"valores": [100,200,300,258,87,132,348,79], "campos": ["Pré-plantio", "Plantio", "Colheita", "Pos-Colheita", "Beneficiamento", "Aplicação de insumos", "Manutenção", "Despesas Adicionais"]};
 
 
 function loadPage() {
@@ -17,7 +16,7 @@ function buildGraph(){
 	var ticks = lavouras.campos;
 	var color = ['#FF0000']
 
-	var formatString = "%'d";     
+	var formatString = "R$%'d";     
 	var divName = "graph";
 
 	graphBar(bar, ticks, color, divName, formatString, openModal);
