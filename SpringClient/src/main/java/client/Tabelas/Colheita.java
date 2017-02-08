@@ -160,5 +160,3 @@ class Colheita_PropriedadeId implements Serializable {
 	}
 	
 }
-
-

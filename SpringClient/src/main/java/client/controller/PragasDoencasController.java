@@ -18,6 +18,7 @@ import client.Tabelas.Propriedade;
 import client.Tabelas.Tipos_Pragas;
 import client.tabelasDAO.PragaDoencaDAO;
 import client.tabelasDAO.PropriedadeDAO;
+import client.tabelasDAO.Pesquisa;
 
 @Controller
 @RequestMapping(value="/GestorCafeeiro")
@@ -42,7 +43,7 @@ public class PragasDoencasController {
 	    return "telas/registropraga";
 	  }
 
-	@RequestMapping(value = "registrapragasdoencas", method = RequestMethod.POST)
+	@RequestMapping(value = "pesquisapragasdoencas", method = RequestMethod.POST)
 	  public String RegistraOcorrencia(@Valid PragasDoencas pragasdoencas , BindingResult result,
 			                           HttpSession session) throws SQLException{
 		if(result.hasErrors()){
@@ -52,6 +53,13 @@ public class PragasDoencasController {
 		pd.inserePragasDoencas(pragasdoencas);
 		
 		return "redirect:inicio";	
+	}
+	
+	@RequestMapping(value = "registrapragasdoencas", method = RequestMethod.POST)
+	  public String Pesquisa(@Valid Pesquisa p , BindingResult result,
+			                           HttpSession session) throws SQLException{
+		return "redirect:inicio";
+		
 	}
 }
 

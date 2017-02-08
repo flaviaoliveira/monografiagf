@@ -59,14 +59,18 @@ public class BeneficiamentoDAO {
 		 
 	 }
 	 
-	 public List <Beneficiamento> ListaBeneficiamento()throws SQLException {
+	 public List <Beneficiamento> ListaBeneficiamento(Integer id, Integer ano )throws SQLException {
 			
 			manager = DBManager.getEntityManager();
 	        manager.getTransaction().begin();	
 	        TypedQuery<Beneficiamento>  query = manager.createQuery(
 	        	    "SELECT p "+ 
-	        	    "FROM Beneficiamento p", 
+	        	    "FROM Beneficiamento p"+
+	        	    "WHERE extract(year from data) = :ano "+
+	        	    " AND p.id_propriedade = :id",
 	        	    Beneficiamento.class);
+	        query.setParameter("ano", ano);
+	        query.setParameter("id", id);
 	        	        
 	         List<Beneficiamento> results = query.getResultList();
 	   

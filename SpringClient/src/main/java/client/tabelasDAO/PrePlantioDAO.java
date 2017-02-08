@@ -46,4 +46,28 @@ public class PrePlantioDAO {
 		        
 			return results;
 		}
+	 
+	 
+	 public List <PrePlantio> ListaColheita(Integer id, Integer ano )throws SQLException {
+			
+			manager = DBManager.getEntityManager();
+	        manager.getTransaction().begin();	
+	        TypedQuery<PrePlantio>  query = manager.createQuery(
+	        	    "SELECT p "+ 
+	        	    "FROM PrePlantio p"+
+	        	    "WHERE extract(year from data) = :ano "+
+	        	    " AND p.id_propriedade = :id",
+	        	    PrePlantio.class);
+	        query.setParameter("ano", ano);
+	        query.setParameter("id", id);
+	        	        
+	         List<PrePlantio> results = query.getResultList();
+	   
+			 manager.flush();
+		     manager.clear();
+		     manager.getTransaction().commit();
+		     manager.close();
+		        
+			return results;
+		}
 }

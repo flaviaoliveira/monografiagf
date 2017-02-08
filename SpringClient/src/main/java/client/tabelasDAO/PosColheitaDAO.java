@@ -42,5 +42,28 @@ public class PosColheitaDAO {
 		        
 			return results;
 		}
+	 
+	 public List <PosColheita> ListaColheita(Integer id, Integer ano )throws SQLException {
+			
+			manager = DBManager.getEntityManager();
+	        manager.getTransaction().begin();	
+	        TypedQuery<PosColheita>  query = manager.createQuery(
+	        	    "SELECT p "+ 
+	        	    "FROM PosColheita p"+
+	        	    "WHERE extract(year from data) = :ano "+
+	        	    " AND p.id_propriedade = :id",
+	        	    PosColheita.class);
+	        query.setParameter("ano", ano);
+	        query.setParameter("id", id);
+	        	        
+	         List<PosColheita> results = query.getResultList();
+	   
+			 manager.flush();
+		     manager.clear();
+		     manager.getTransaction().commit();
+		     manager.close();
+		        
+			return results;
+		}
 
 }

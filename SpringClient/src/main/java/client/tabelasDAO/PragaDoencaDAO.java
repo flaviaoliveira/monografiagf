@@ -39,6 +39,30 @@ public class PragaDoencaDAO {
 		  manager.close();	
 	 }
 	 
+	public List<PragasDoencas> pesquisaPragaDoencas(Integer id,Integer ano)throws SQLException{
+		
+		manager = DBManager.getEntityManager();
+        manager.getTransaction().begin();
+        //select * from pragasdoencas where  extract(year from data_inicio) = '2017';
+        
+        
+        TypedQuery<PragasDoencas>  query = manager.createQuery(
+        	    "SELECT p "+
+        	    "FROM PragasDoencas p  "+
+        	    "WHERE extract(year from data_inicio) = :ano "+
+        	    " AND p.id_propriedade = :id", 
+        	    PragasDoencas.class);
+        query.setParameter("ano", ano);
+        query.setParameter("id", id);
+        List<PragasDoencas> results = query.getResultList();
+		 manager.flush();
+	     manager.clear();
+	     manager.getTransaction().commit();
+	     manager.close();
+	     return results;
+		
+	}
+	 
 	 public void editaPragaDoença(PragasDoencas pd){
 		 manager = DBManager.getEntityManager();
          manager.getTransaction().begin();

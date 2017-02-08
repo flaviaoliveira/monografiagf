@@ -43,7 +43,30 @@ public class InsumoDAO {
 		        
 			return results;
 		}
-
+      
+	 
+	public List<Insumos> ListaColheita(Integer id, Integer ano )throws SQLException {
+			
+			manager = DBManager.getEntityManager();
+	        manager.getTransaction().begin();	
+	        TypedQuery<Insumos>  query = manager.createQuery(
+	        	    "SELECT p "+ 
+	        	    "FROM Insumos p"+
+	        	    "WHERE extract(year from data) = :ano "+
+	        	    " AND p.id_propriedade = :id",
+	        	   Insumos.class);
+	        query.setParameter("ano", ano);
+	        query.setParameter("id", id);
+	        	        
+	         List<Insumos> results = query.getResultList();
+	   
+			 manager.flush();
+		     manager.clear();
+		     manager.getTransaction().commit();
+		     manager.close();
+		        
+			return results;
+		}
 
 }
 

@@ -28,25 +28,22 @@
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<form method="POST" action="">
-						<div class="form-group">
-							<h2>Edirar ocorrência de pragas ou doenças na lavoura</h2>
-						</div>
 
+					<div class="form-group">
+						<h2>Edirar ocorrência de pragas ou doenças na lavoura</h2>
+					</div>
 
-						<div class="form-group">
+					<div class="form-group">
+						<form method="POST" action="buscapd">
 							<div class="form-inline">
 								<div class="form-group">
 									<label for="lavoura">Lavoura:</label> <select
-										class="form-control" id="sel1" name="id_propriedade">
+										class="form-control" id="sel1" name="id">
 										<c:forEach var="lavoura" items="${lavouras}">
 											<option value="${lavoura.id_propriedade}">${lavoura.nome}</option>
 										</c:forEach>
 									</select>
 								</div>
-
-
-
 								<div class="form-group">
 									<label class="control-label" for="data">Ano:</label> <input
 										name="ano" type="text" class="form-control">
@@ -58,8 +55,46 @@
 									</button>
 								</div>
 							</div>
+						</form>
+						<hr>
+						<div class="form-group">
+							<table class="table table-bordred table-striped">
+
+								<thead>
+									<tr>
+										<th>Praga ou doença</th>
+										<th>Data de inicio</th>
+										<th>Data de fim</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="listapd" items="${listapd}">
+										<tr>
+											<td>${listapd.id_propriedade}</td>
+											<td>${listapd.data_inicio}</td>
+											<td>${listapd.data_fim}</td>
+
+											<td><p data-placement="top" data-toggle="tooltip"
+													title="Edit">
+													<button class="btn btn-primary btn-xs" data-title="Edit"
+														data-toggle="modal" data-target="">
+														<span class="glyphicon glyphicon-pencil"></span>
+													</button>
+												</p></td>
+											<td><p data-placement="top" data-toggle="tooltip"
+													title="Delete">
+													<button class="btn btn-danger btn-xs" data-title="Delete"
+														data-toggle="modal" data-target="#delete">
+														<span class="glyphicon glyphicon-trash"></span>
+													</button>
+												</p></td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
 						</div>
-					</form>
+					</div>
+
 				</div>
 			</div>
 		</div>
