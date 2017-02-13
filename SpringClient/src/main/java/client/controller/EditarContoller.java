@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import client.Tabelas.Beneficiamento;
 import client.Tabelas.Colheita;
@@ -39,6 +40,8 @@ import client.tabelasDAO.PropriedadeDAO;
 @RequestMapping(value = "/GestorCafeeiro")
 public class EditarContoller {
 
+	
+	
 	@RequestMapping("editarlavouras")
 	public String EditarLavoura(ModelMap model, HttpSession session) throws SQLException {
 
@@ -51,9 +54,21 @@ public class EditarContoller {
 
 		return "telas/editaLavoura";
 	}
+	
+	@RequestMapping("deletalavouras")
+	public String delete(@RequestParam("id") String id) {
+	   
+	    System.out.println(id);
+	    return "redirect:editaLavoura";
+	}
+	public String edita(@RequestParam("id") String id) {
+		   
+	    System.out.println(id);
+	    return "redirect:editaLavoura";
+	}
 
-	///////////////////////////// Edita ocorrêcia de Pragas e
-	///////////////////////////// doenças/////////////////////////////////////
+	 
+	/////////////////////////////Pragas e doenças/////////////////////////////////////
 	@RequestMapping("editarpragas")
 	public String EditarPragas(Pesquisa pesquisa, ModelMap model, HttpSession session) throws SQLException {
 
@@ -85,7 +100,7 @@ public class EditarContoller {
 		return "telas/editaPragas";
 	}
 
-	///////////////////////////////// Edita
+
 	///////////////////////////////// Despesas////////////////////////////////////
 	@RequestMapping("editardespesas")
 	public String EditarDespesa(ModelMap model, HttpSession session) throws SQLException {
