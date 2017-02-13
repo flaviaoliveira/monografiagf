@@ -56,8 +56,35 @@ public class Beneficiamento implements Serializable{
 	@Column
 	private String descricao;
 	
+	
 	@Column
 	private float despesa_outro;
+	
+	
+	@Column
+	private float qnt_sacas;	
+	
+	
+	@Column
+	private float valor_saca;
+	
+	
+
+	public float getQnt_sacas() {
+		return qnt_sacas;
+	}
+
+	public void setQnt_sacas(float qnt_sacas) {
+		this.qnt_sacas = qnt_sacas;
+	}
+
+	public float getValor_saca() {
+		return valor_saca;
+	}
+
+	public void setValor_saca(float valor_saca) {
+		this.valor_saca = valor_saca;
+	}
 
 	public Integer getId_beneficiamento() {
 		return id_beneficiamento;

@@ -48,13 +48,13 @@ public class PrePlantioDAO {
 		}
 	 
 	 
-	 public List <PrePlantio> ListaColheita(Integer id, Integer ano )throws SQLException {
+	 public List <PrePlantio> BuscaPrePlantio(Integer id, Integer ano )throws SQLException {
 			
 			manager = DBManager.getEntityManager();
 	        manager.getTransaction().begin();	
 	        TypedQuery<PrePlantio>  query = manager.createQuery(
 	        	    "SELECT p "+ 
-	        	    "FROM PrePlantio p"+
+	        	    "FROM PrePlantio p "+
 	        	    "WHERE extract(year from data) = :ano "+
 	        	    " AND p.id_propriedade = :id",
 	        	    PrePlantio.class);

@@ -572,8 +572,8 @@
 									</div>
 									<h3></h3>
 									<div class="form-inline">
-										<label class="control-label" for="area_p">Área
-											trabalhada(%):</label> <input name="area_p" type="text"
+										<label class="control-label" for="area">Área
+											trabalhada(%):</label> <input name="area" type="text"
 											class="form-control">
 									</div>
 									<hr>
@@ -599,17 +599,17 @@
 									</div>
 
 									<div class="form-inline">
-										<label class="control-label" for="tipo_adubo">Tipo:</label> <select
+										<label class="control-label" for="tipo_insumos">Tipo:</label> <select
 											class="form-control" style="width: 20%" id="sel1"
-											name="tipo_adubo">
+											name="tipo_insumos">
 											<option>Insumo01</option>
 											<option>Insumo02</option>
 											<option>Outros</option>
-										</select> <label class="control-label" for="qnt_adubo">Qtd.:</label> <input
-											name="qnt_adubo" type="text" class="form-control"
+										</select> <label class="control-label" for="qnt_insumos">Qtd.:</label> <input
+											name="qnt_insumos" type="text" class="form-control"
 											style="width: 20%"> <label class="control-label"
-											for="despesa_adubo">Despesa:</label> <input
-											name="despesa_adubo" type="text" class="form-control"
+											for="despesa_insumos">Despesa:</label> <input
+											name="despesa_insumos" type="text" class="form-control"
 											style="width: 25%">
 									</div>
 

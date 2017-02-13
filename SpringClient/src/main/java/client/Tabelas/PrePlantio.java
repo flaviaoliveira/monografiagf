@@ -33,49 +33,49 @@ public class PrePlantio implements Serializable{
 	private Date data;
 	
 	@Column
-	private float area_t;
+	private double area_t;
 	
 	@Column
-	private Integer n_covas;
+	private int n_covas;
 	
 	@Column
-	private Integer qnt_func;
+	private int  qnt_func;
 	
 	@Column
-	private float despesa_func;
+	private double despesa_func;
 	
 	@Column
 	private String tipo_adubo;
 	
 	@Column
-	private float qnt_adubo;
+	private double qnt_adubo;
 		
 	@Column
-	private float despesa_adubo;
+	private double despesa_adubo;
 	
 	@Column
 	private String tipo_calcario;
 	
 	@Column
-	private float qnt_calcario;
+	private double qnt_calcario;
 		
 	@Column
-	private float despesa_calcario;
+	private double despesa_calcario;
 	
 	@Column
 	private String tipo_herbicida;
 	
 	@Column
-	private float qnt_herbicida;
+	private double qnt_herbicida;
 		
 	@Column
-	private float despesa_herbicida;
+	private double despesa_herbicida;
 	
 	@Column
 	private String descricao;
 	
 	@Column
-	private float despesa_outro;
+	private double despesa_outro;
 
 	public Integer getId_preplantio() {
 		return id_preplantio;
@@ -101,7 +101,7 @@ public class PrePlantio implements Serializable{
 		this.data = data;
 	}
 
-	public float getArea_t() {
+	public double getArea_t() {
 		return area_t;
 	}
 
@@ -125,7 +125,7 @@ public class PrePlantio implements Serializable{
 		this.qnt_func = qnt_func;
 	}
 
-	public float getDespesa_func() {
+	public double getDespesa_func() {
 		return despesa_func;
 	}
 
@@ -141,7 +141,7 @@ public class PrePlantio implements Serializable{
 		this.tipo_adubo = tipo_adubo;
 	}
 
-	public float getQnt_adubo() {
+	public double getQnt_adubo() {
 		return qnt_adubo;
 	}
 
@@ -149,7 +149,7 @@ public class PrePlantio implements Serializable{
 		this.qnt_adubo = qnt_adubo;
 	}
 
-	public float getDespesa_adubo() {
+	public double getDespesa_adubo() {
 		return despesa_adubo;
 	}
 
@@ -165,7 +165,7 @@ public class PrePlantio implements Serializable{
 		this.tipo_calcario = tipo_calcario;
 	}
 
-	public float getQnt_calcario() {
+	public double getQnt_calcario() {
 		return qnt_calcario;
 	}
 
@@ -173,7 +173,7 @@ public class PrePlantio implements Serializable{
 		this.qnt_calcario = qnt_calcario;
 	}
 
-	public float getDespesa_calcario() {
+	public double getDespesa_calcario() {
 		return despesa_calcario;
 	}
 
@@ -189,7 +189,7 @@ public class PrePlantio implements Serializable{
 		this.tipo_herbicida = tipo_herbicida;
 	}
 
-	public float getQnt_herbicida() {
+	public double getQnt_herbicida() {
 		return qnt_herbicida;
 	}
 
@@ -197,7 +197,7 @@ public class PrePlantio implements Serializable{
 		this.qnt_herbicida = qnt_herbicida;
 	}
 
-	public float getDespesa_herbicida() {
+	public double getDespesa_herbicida() {
 		return despesa_herbicida;
 	}
 
@@ -213,7 +213,7 @@ public class PrePlantio implements Serializable{
 		this.descricao = descricao;
 	}
 
-	public float getDespesa_outro() {
+	public double getDespesa_outro() {
 		return despesa_outro;
 	}
 

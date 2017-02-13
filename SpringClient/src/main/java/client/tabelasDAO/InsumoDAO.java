@@ -45,13 +45,13 @@ public class InsumoDAO {
 		}
       
 	 
-	public List<Insumos> ListaColheita(Integer id, Integer ano )throws SQLException {
+	public List<Insumos> BuscaInsumos(Integer id, Integer ano )throws SQLException {
 			
 			manager = DBManager.getEntityManager();
 	        manager.getTransaction().begin();	
 	        TypedQuery<Insumos>  query = manager.createQuery(
 	        	    "SELECT p "+ 
-	        	    "FROM Insumos p"+
+	        	    "FROM Insumos p "+
 	        	    "WHERE extract(year from data) = :ano "+
 	        	    " AND p.id_propriedade = :id",
 	        	   Insumos.class);

@@ -43,13 +43,13 @@ public class PosColheitaDAO {
 			return results;
 		}
 	 
-	 public List <PosColheita> ListaColheita(Integer id, Integer ano )throws SQLException {
+	 public List <PosColheita> BuscaPosColheita(Integer id, Integer ano )throws SQLException {
 			
 			manager = DBManager.getEntityManager();
 	        manager.getTransaction().begin();	
 	        TypedQuery<PosColheita>  query = manager.createQuery(
 	        	    "SELECT p "+ 
-	        	    "FROM PosColheita p"+
+	        	    "FROM PosColheita p "+
 	        	    "WHERE extract(year from data) = :ano "+
 	        	    " AND p.id_propriedade = :id",
 	        	    PosColheita.class);
