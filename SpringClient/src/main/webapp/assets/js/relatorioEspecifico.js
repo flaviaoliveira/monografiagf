@@ -1,34 +1,10 @@
-var anos = [2010,2011,2012,2013,2014,2015,2016,2017];
-var lavouras = {"valores": [100,200,300,400], "campos": ["campo1", "campo2", "campo3", "campo4"]};
-var lavouras2 = {"valores": [321,131,151,332], "campos": ["campoA", "campoB", "campoC", "campoD"]};
+var lavouras = {"valores": [100,200,300,400], "campos": ["Pré-plantio", "Plantio", "Colheita", "Pós-Colheita", "Beneficiamento", "Aplicação de insumos", "Manutenção", "Despesas Adicionais"]};
 
 
 function loadPage() {
-//	loadSelects();
 	buildGraph();
 	buildList();
 }
-
-//function loadSelects(){
-//	loadAnos();
-//	//loadLavouras();
-//
-//	function loadAnos(){
-//		var selectYears = document.getElementById('anos');
-//
-//		$("#anos").empty();
-//
-//		for (var i=0; i< anos.length; i++){
-//
-//			var options = document.createElement('option');
-//			options.appendChild(document.createTextNode(anos[i]));
-//
-//			selectYears.appendChild(options);
-//		}
-//		$('#anos').selectpicker('refresh');
-//		$('#lavoura').selectpicker('refresh');
-//	}
-//}
 
 function buildGraph(){
 
