@@ -28,7 +28,7 @@
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<form method="POST" action="">
+					<form method="POST" action="pesquisarelatorioEspecifico">
 						<div class="form-group">
 							<h2>Relatório Específico</h2>
 						</div>
@@ -102,6 +102,29 @@
 						</div>
 
 					</div>
+					
+                   <!-- Esses itens são as barras do gráfico -->
+                   
+                    <c:set var="despesa_total_preplantio" scope="session" value="${despesa_total_preplantio}"/>
+					<c:set var ="despesa_total_plantio" scope="session" value="${despesa_total_plantio}"/>					
+					<c:set var ="despesa_total_colheita" scope="session" value="${despesa_total_colheita}"/>
+					<c:set var ="despesa_total_poscolheita" scope="session" value="${despesa_total_poscolheita}"/>
+					<c:set var ="despesa_total_beneficiamento" scope="session" value="${despesa_total_beneficiamento}"/>
+					<c:set var ="despesa_total_insumos" scope="session" value="${despesa_total_insumos}"/>
+					<c:set var="despesa_total_manutencao" scope="session" value="${despesa_total_manutencao}"/>
+					
+					
+					 <!-- Esses itens são os dados que devem conter quando é clicado na barra do gráfico -->
+					<c:forEach var="preplantio" items="${preplantio}"></c:forEach>
+					<c:forEach var="plantio" items="${plantio}"></c:forEach>
+					<c:forEach var="colheita" items="${colheita}"></c:forEach>
+					<c:forEach var="poscolheita" items="${poscolheita}"></c:forEach>
+					<c:forEach var="beneficiamento" items="${beneficiamento}"></c:forEach>
+					<c:forEach var="insumos" items="${insumos}"></c:forEach>
+					<!--Esse dois vai junto pra manutenção  -->
+					<c:forEach var="manulavoura" items="${manulavoura}"></c:forEach>
+					<c:forEach var="manuequipamento" items="${manuequipamento}"></c:forEach>
+					
 				</div>
 			</div>
 		</div>
@@ -122,6 +145,6 @@
 		<!-- /.row -->
 	</footer>
 
-	<!-- /.container -->
+
 </body>
 </html>

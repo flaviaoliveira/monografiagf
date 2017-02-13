@@ -146,7 +146,6 @@
 									<p>Faça a recomendação de adubação e calagem de forma fácil.</p>
 	
 								</div>
-								<!-- /.col-lg-4 -->
 							</div>
 						</div>
 					</div>

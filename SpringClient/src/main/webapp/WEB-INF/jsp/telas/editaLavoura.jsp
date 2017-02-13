@@ -28,78 +28,95 @@
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<form method="POST" action="">
-						<div class="form-group">
-							<h2>Edirar Lavouras</h2>
-						</div>
+
+					<div class="form-group">
+						<h2>Edirar Lavouras</h2>
+					</div>
 
 
-						<div class="form-group">
-							<table class="table table-bordred table-striped">
+					<div class="form-group">
+						<table class="table table-bordred table-striped">
 
-								<thead>
+							<thead>
+								<tr>
+									<th>Nome</th>
+									<th>Tamanho(hectare)</th>
+									<th>Localização</th>
+									<th>Número de covas</th>
+									<th>Variedade do café</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="lavoura" items="${lavouras}">
 									<tr>
-										<th>Nome</th>
-										<th>Tamanho(hectare)</th>
-										<th>Localização</th>
-										<th>Número de covas</th>
-										<th>Variedade do café</th>
+										<td>${lavoura.nome}</td>
+										<td>${lavoura.lavoura_tamanho}</td>
+										<td>${lavoura.estado}</td>
+										<td>${lavoura.covas_numero}</td>
+										<td>${lavoura.variedade}</td>
+										<td><p data-placement="top" data-toggle="tooltip"
+												title="Edit">
+												<button class="btn btn-primary btn-xs" data-title="Edit"
+													data-toggle="modal" data-target="#editar"
+													id="${lavoura.id_propriedade}">
+													<span class="glyphicon glyphicon-pencil"></span>
+												</button>
+											</p></td>
+										<td><p data-placement="top" data-toggle="tooltip"
+												title="Delete">
+												<button class="btn btn-danger btn-xs" data-title="Delete"
+													data-toggle="modal" data-target="#delete"
+													id="${lavoura.id_propriedade}">
+													<span class="glyphicon glyphicon-trash"></span>
+												</button>
+											</p></td>
 									</tr>
-								</thead>
-								<tbody>
-									<c:forEach var="lavoura" items="${lavouras}">
-										<tr>
-											<td>${lavoura.nome}</td>
-											<td>${lavoura.lavoura_tamanho}</td>
-											<td>${lavoura.estado}</td>
-											<td>${lavoura.covas_numero}</td>
-											<td>${lavoura.variedade}</td>
-											<td><p data-placement="top" data-toggle="tooltip"
-													title="Edit">
-													<button class="btn btn-primary btn-xs" data-title="Edit"
-														data-toggle="modal" data-target="">
-														<span class="glyphicon glyphicon-pencil"></span>
-													</button>
-												</p></td>
-											<td><p data-placement="top" data-toggle="tooltip"
-													title="Delete">
-													<button class="btn btn-danger btn-xs" data-title="Delete"
-														data-toggle="modal" data-target="#delete">
-														<span class="glyphicon glyphicon-trash"></span>
-													</button>
-												</p></td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="modal" id="delete" tabindex="-1" role="dialog"
+						aria-labelledby="modalLabel">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Fechar">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<h4 class="modal-title" id="modalLabel">Excluir Item</h4>
+								</div>
+								<div class="modal-body">Deseja realmente excluir este
+									item?</div>
+									
+								<div class="modal-footer">
+								    
+									<button type="button" class="btn btn-primary">Sim</button>
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">N&atilde;o</button>
+								</div>
+							</div>
 						</div>
-
-
-						<!-- Modal -->
-
-
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="modal" id="delete" tabindex="-1" role="dialog"
-		aria-labelledby="modalLabel">
-		<div class="modal-dialog" role="document">
+	<div id="editar" class="modal fade" role="dialog">
+		<div class="modal-dialog">
 			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Fechar">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="modalLabel">Excluir Item</h4>
-				</div>
-				<div class="modal-body">Deseja realmente excluir este item?</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary">Sim</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">N&atilde;o</button>
-				</div>
+
+				<form method="POST" action="">
+
+
+					<div class="form-group">
+						<button id="criarconta" type="submit"
+							class="btn btn-info btn-block">Cadastrar</button>
+					</div>
+
+				</form>
 			</div>
 		</div>
 	</div>

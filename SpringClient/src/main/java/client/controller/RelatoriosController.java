@@ -171,29 +171,61 @@ public class RelatoriosController {
 
 		// Despesa total
 		float despesa_total = 0;
+		float despesa_total_preplantio = 0;
+		float despesa_total_plantio = 0;
+		float despesa_total_colheita = 0;
+		float despesa_total_poscolheita = 0;
+		float despesa_total_beneficiamento = 0;
+		float despesa_total_insumos = 0;
+		float despesa_total_manutencao = 0;
+		
 
 		for (int i = 0; i < preplantio.size(); i++) {
-			despesa_total = (float) (despesa_total + preplantio.get(i).getDespesa_adubo()
+			despesa_total_preplantio = (float) (despesa_total_preplantio + preplantio.get(i).getDespesa_adubo()
 					+ preplantio.get(i).getDespesa_calcario() + preplantio.get(i).getDespesa_herbicida()
 					+ preplantio.get(i).getDespesa_outro());
+			
 		}
 		for (int i = 0; i < plantio.size(); i++) {
-			despesa_total = (float) (despesa_total + plantio.get(i).getDespesa_muda()
+			despesa_total_plantio = (float) (despesa_total_plantio + plantio.get(i).getDespesa_muda()
 					+ plantio.get(i).getDespesa_outro());
 		}
+		for (int i = 0; i < colheita.size(); i++) {
+			despesa_total_colheita = (float) (despesa_total_colheita + colheita.get(i).getDespesa_viagens()+
+					colheita.get(i).getDespesa_saca()+colheita.get(i).getDespesa_outro());			
+		}
 		for (int i = 0; i < poscolheita.size(); i++) {
-			despesa_total = (float) (despesa_total + poscolheita.get(i).getDespesa_func()
+			despesa_total_poscolheita = (float) (despesa_total_poscolheita + poscolheita.get(i).getDespesa_func()
 					+ poscolheita.get(i).getDespesa_secador() + poscolheita.get(i).getDespesa_outro());
 		}
 		for (int i = 0; i < beneficiamento.size(); i++) {
-			despesa_total = (float) (despesa_total + beneficiamento.get(i).getDespesa_func()
+			despesa_total_beneficiamento = (float) (despesa_total_beneficiamento + beneficiamento.get(i).getDespesa_func()
 					+ beneficiamento.get(i).getDespesa_maquina() + beneficiamento.get(i).getDespesa_outro());
 		}
 		for (int i = 0; i < insumo.size(); i++) {
-			despesa_total = (float) (despesa_total + insumo.get(i).getDespesa_func());
+			despesa_total_insumos = (float) (despesa_total_insumos + insumo.get(i).getDespesa_func());
 		}
-		model.addAttribute("despesa_total", despesa_total);
+		
+		for (int i = 0; i < manulavoura.size(); i++) {
+			despesa_total_manutencao = (float) (despesa_total_manutencao + manulavoura.get(i).getDespesa_func());
+		}
 
+		for (int i = 0; i < manuequipamento.size(); i++) {
+			despesa_total_manutencao = (float) (despesa_total_manutencao + manuequipamento.get(i).getDespesa());
+		}
+		
+		despesa_total = despesa_total_preplantio + despesa_total_plantio+ despesa_total_colheita + despesa_total_poscolheita
+				+ despesa_total_beneficiamento +despesa_total_insumos +despesa_total_manutencao;
+		
+		model.addAttribute("despesa_total", despesa_total);
+		model.addAttribute("despesa_total_preplantio",despesa_total_preplantio);
+		model.addAttribute("despesa_total_plantio", despesa_total_plantio);
+		model.addAttribute("despesa_total_colheita", despesa_total_colheita);
+		model.addAttribute("despesa_total_poscolheita", despesa_total_poscolheita);
+		model.addAttribute("despesa_total_beneficiamento", despesa_total_beneficiamento);
+		model.addAttribute("despesa_total_insumos", despesa_total_insumos);
+		model.addAttribute("despesa_total_manutencao", despesa_total_manutencao);
+	
 		// Custo para produzir uma saca de café
 		float custo_saca = despesa_total / total_cafe_final;
 		model.addAttribute("custo_saca", custo_saca);
@@ -207,7 +239,18 @@ public class RelatoriosController {
 	}
 
 	@RequestMapping("relatorioGeral")
-	public String relatoriogeral() {
+	public String relatoriogeral(ModelMap model, HttpSession session) throws SQLException {
+		
+		Produtor usuario = (Produtor) session.getAttribute("usuarioLogado");
+		List<Propriedade> prop = new ArrayList<Propriedade>();
+		PropriedadeDAO p = new PropriedadeDAO();
+
+		prop = p.findPropriedade(usuario.getId_produtor());
+		
+		for (int i = 0; i < prop.size(); i++) {
+			// Achar uma forma de achar o ano inicial e final para pesquisa	
+		}
+		
 		return "telas/relatorioGeral";
 	}
 }
