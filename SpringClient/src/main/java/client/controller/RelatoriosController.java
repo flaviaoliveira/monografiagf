@@ -60,11 +60,12 @@ public class RelatoriosController {
 
 		prop = p.findPropriedade(usuario.getId_produtor());
 		model.addAttribute("lavouras", prop);
-
+       
 		PrePlantioDAO pp = new PrePlantioDAO();
 		List<PrePlantio> preplantio = new ArrayList<PrePlantio>();
 		preplantio = pp.BuscaPrePlantio(pesquisa.getId(), pesquisa.getAno());
 		if (preplantio.size() > 0) {
+			
 			model.addAttribute("preplantio", preplantio);
 		}
 
@@ -72,6 +73,7 @@ public class RelatoriosController {
 		List<Plantio> plantio = new ArrayList<Plantio>();
 		plantio = pl.BuscaPlantio(pesquisa.getId(), pesquisa.getAno());
 		if (plantio.size() > 0) {
+			
 			model.addAttribute("plantio", plantio);
 		}
 
@@ -79,13 +81,16 @@ public class RelatoriosController {
 		List<Colheita> colheita = new ArrayList<Colheita>();
 		colheita = c.BuscaColheita(pesquisa.getId(), pesquisa.getAno());
 		if (colheita.size() > 0) {
+			
 			model.addAttribute("colheita", colheita);
 		}
 
 		PosColheitaDAO pc = new PosColheitaDAO();
+		
 		List<PosColheita> poscolheita = new ArrayList<PosColheita>();
 		poscolheita = pc.BuscaPosColheita(pesquisa.getId(), pesquisa.getAno());
 		if (poscolheita.size() > 0) {
+			
 			model.addAttribute("poscolheita", poscolheita);
 		}
 
@@ -93,6 +98,7 @@ public class RelatoriosController {
 		List<Beneficiamento> beneficiamento = new ArrayList<Beneficiamento>();
 		beneficiamento = b.BuscaBeneficiamento(pesquisa.getId(), pesquisa.getAno());
 		if (beneficiamento.size() > 0) {
+			
 			model.addAttribute("beneficiamento", beneficiamento);
 		}
 
@@ -100,6 +106,7 @@ public class RelatoriosController {
 		List<Insumos> insumo = new ArrayList<Insumos>();
 		insumo = is.BuscaInsumos(pesquisa.getId(), pesquisa.getAno());
 		if (insumo.size() > 0) {
+			
 			model.addAttribute("insumo", insumo);
 		}
 
@@ -107,6 +114,7 @@ public class RelatoriosController {
 		List<ManutencaoEquipamento> manuequipamento = new ArrayList<ManutencaoEquipamento>();
 		manuequipamento = me.BuscaManutencaoEquipamento(pesquisa.getAno());
 		if (manuequipamento.size() > 0) {
+			
 			model.addAttribute("manuequipamento", manuequipamento);
 		}
 
@@ -114,6 +122,7 @@ public class RelatoriosController {
 		List<ManutencaoLavoura> manulavoura = new ArrayList<ManutencaoLavoura>();
 		manulavoura = ml.ListaManutencaoLavoura(pesquisa.getId(), pesquisa.getAno());
 		if (manulavoura.size() > 0) {
+			
 			model.addAttribute("manulavoura", manulavoura);
 		}
 
@@ -123,6 +132,7 @@ public class RelatoriosController {
 		if (despesaadd.size() > 0) {
 			model.addAttribute("despesaaadd", despesaadd);
 		}
+		
 		// Quntidade total de sacos colhido
 		float total_cafe = 0;
 		for (int i = 0; i < colheita.size(); i++) {
@@ -178,6 +188,7 @@ public class RelatoriosController {
 		float despesa_total_beneficiamento = 0;
 		float despesa_total_insumos = 0;
 		float despesa_total_manutencao = 0;
+		float despesa_total_despesaadd = 0;
 		
 
 		for (int i = 0; i < preplantio.size(); i++) {
@@ -187,31 +198,34 @@ public class RelatoriosController {
 			
 		}
 		for (int i = 0; i < plantio.size(); i++) {
-			despesa_total_plantio = (float) (despesa_total_plantio + plantio.get(i).getDespesa_muda()
+			despesa_total_plantio = (despesa_total_plantio + plantio.get(i).getDespesa_muda()
 					+ plantio.get(i).getDespesa_outro());
 		}
 		for (int i = 0; i < colheita.size(); i++) {
-			despesa_total_colheita = (float) (despesa_total_colheita + colheita.get(i).getDespesa_viagens()+
+			despesa_total_colheita = (despesa_total_colheita + colheita.get(i).getDespesa_viagens()+
 					colheita.get(i).getDespesa_saca()+colheita.get(i).getDespesa_outro());			
 		}
 		for (int i = 0; i < poscolheita.size(); i++) {
-			despesa_total_poscolheita = (float) (despesa_total_poscolheita + poscolheita.get(i).getDespesa_func()
+			despesa_total_poscolheita = (despesa_total_poscolheita + poscolheita.get(i).getDespesa_func()
 					+ poscolheita.get(i).getDespesa_secador() + poscolheita.get(i).getDespesa_outro());
 		}
 		for (int i = 0; i < beneficiamento.size(); i++) {
-			despesa_total_beneficiamento = (float) (despesa_total_beneficiamento + beneficiamento.get(i).getDespesa_func()
+			despesa_total_beneficiamento =  (despesa_total_beneficiamento + beneficiamento.get(i).getDespesa_func()
 					+ beneficiamento.get(i).getDespesa_maquina() + beneficiamento.get(i).getDespesa_outro());
 		}
 		for (int i = 0; i < insumo.size(); i++) {
-			despesa_total_insumos = (float) (despesa_total_insumos + insumo.get(i).getDespesa_func());
+			despesa_total_insumos = (despesa_total_insumos + insumo.get(i).getDespesa_func());
 		}
 		
 		for (int i = 0; i < manulavoura.size(); i++) {
-			despesa_total_manutencao = (float) (despesa_total_manutencao + manulavoura.get(i).getDespesa_func());
+			despesa_total_manutencao =  (despesa_total_manutencao + manulavoura.get(i).getDespesa_func());
 		}
 
 		for (int i = 0; i < manuequipamento.size(); i++) {
-			despesa_total_manutencao = (float) (despesa_total_manutencao + manuequipamento.get(i).getDespesa());
+			despesa_total_manutencao =  (despesa_total_manutencao + manuequipamento.get(i).getDespesa());
+		}
+		for (int i = 0; i < despesaadd.size(); i++) {
+			despesa_total_despesaadd = (despesa_total_despesaadd + despesaadd.get(i).getDespesa());
 		}
 		
 		despesa_total = despesa_total_preplantio + despesa_total_plantio+ despesa_total_colheita + despesa_total_poscolheita
@@ -225,7 +239,8 @@ public class RelatoriosController {
 		model.addAttribute("despesa_total_beneficiamento", despesa_total_beneficiamento);
 		model.addAttribute("despesa_total_insumos", despesa_total_insumos);
 		model.addAttribute("despesa_total_manutencao", despesa_total_manutencao);
-	
+		model.addAttribute("despesa_total_despesaadd", despesa_total_despesaadd);
+	    
 		// Custo para produzir uma saca de café
 		float custo_saca = despesa_total / total_cafe_final;
 		model.addAttribute("custo_saca", custo_saca);

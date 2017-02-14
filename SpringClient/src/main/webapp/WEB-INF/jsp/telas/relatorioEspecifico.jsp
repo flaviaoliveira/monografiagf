@@ -38,7 +38,7 @@
 							<div class="form-inline">
 								<div class="form-group">
 									<label for="lavoura">Lavoura:</label> <select
-										class="form-control" id="sel1" name="id_propriedade">
+										class="form-control" id="sel1" name="id">
 										<c:forEach var="lavoura" items="${lavouras}">
 											<option value="${lavoura.id_propriedade}">${lavoura.nome}</option>
 										</c:forEach>
@@ -60,7 +60,7 @@
 							</div>
 						</div>
 					</form>
-					
+
 					<hr>
 					<div class="col-sm-12" id="graphDiv"
 						style="margin-top: 60px; margin-bottom: 60px; height: 300px;">
@@ -102,19 +102,29 @@
 						</div>
 
 					</div>
+
+					<!-- Esses itens são as barras do gráfico -->
+
+					<c:set var="despesa_total_preplantio" scope="session"
+						value="${despesa_total_preplantio}" />
+					<c:set var="despesa_total_plantio" scope="session"
+						value="${despesa_total_plantio}" />
+					<c:set var="despesa_total_colheita" scope="session"
+						value="${despesa_total_colheita}" />
+					<c:set var="despesa_total_poscolheita" scope="session"
+						value="${despesa_total_poscolheita}" />
+					<c:set var="despesa_total_beneficiamento" scope="session"
+						value="${despesa_total_beneficiamento}" />
+					<c:set var="despesa_total_insumos" scope="session"
+						value="${despesa_total_insumos}" />
+					<c:set var="despesa_total_manutencao" scope="session"
+						value="${despesa_total_manutencao}" />
+					<c:set var="despesa_total_despesaadd" scope="session"
+						value="${despesa_total_despesaadd}" />
 					
-                   <!-- Esses itens são as barras do gráfico -->
-                   
-                    <c:set var="despesa_total_preplantio" scope="session" value="${despesa_total_preplantio}"/>
-					<c:set var ="despesa_total_plantio" scope="session" value="${despesa_total_plantio}"/>					
-					<c:set var ="despesa_total_colheita" scope="session" value="${despesa_total_colheita}"/>
-					<c:set var ="despesa_total_poscolheita" scope="session" value="${despesa_total_poscolheita}"/>
-					<c:set var ="despesa_total_beneficiamento" scope="session" value="${despesa_total_beneficiamento}"/>
-					<c:set var ="despesa_total_insumos" scope="session" value="${despesa_total_insumos}"/>
-					<c:set var="despesa_total_manutencao" scope="session" value="${despesa_total_manutencao}"/>
-					
-					
-					 <!-- Esses itens são os dados que devem conter quando é clicado na barra do gráfico -->
+
+
+					<!-- Esses itens são os dados que devem conter quando é clicado na barra do gráfico -->
 					<c:forEach var="preplantio" items="${preplantio}"></c:forEach>
 					<c:forEach var="plantio" items="${plantio}"></c:forEach>
 					<c:forEach var="colheita" items="${colheita}"></c:forEach>
@@ -124,7 +134,8 @@
 					<!--Esse dois vai junto pra manutenção  -->
 					<c:forEach var="manulavoura" items="${manulavoura}"></c:forEach>
 					<c:forEach var="manuequipamento" items="${manuequipamento}"></c:forEach>
-					
+					<c:forEach var="despesaadd" items="${despesaadd}"></c:forEach>
+
 				</div>
 			</div>
 		</div>
@@ -132,7 +143,14 @@
 
 	</div>
 
-
+	<script type="text/javascript">
+		var valoresLavra = [ '${despesa_total_preplantio}',
+				'${despesa_total_plantio}', '${despesa_total_colheita}',
+				'${despesa_total_poscolheita}',
+				'${despesa_total_beneficiamento}', '${despesa_total_insumos}',
+				'${despesa_total_manutencao}' ];
+		console.log(valoresLavra);
+	</script>
 
 	<!-- Footer -->
 	<footer>
@@ -144,13 +162,6 @@
 		</div>
 		<!-- /.row -->
 	</footer>
-
-
-<script type="text/javascript">
-	var valoresLavra = ['${despesa_total_preplantio}', '${despesa_total_plantio}', '${despesa_total_colheita}', '${despesa_total_poscolheita}', '${despesa_total_beneficiamento}', '${despesa_total_insumos}', '${despesa_total_manutencao}'];
-	console.log(valoresLavra);
-</script>
-
 
 
 </body>
