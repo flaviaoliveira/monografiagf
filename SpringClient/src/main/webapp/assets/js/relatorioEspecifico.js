@@ -1,4 +1,4 @@
-var lavouras = {"valores": [100,200,300,400], "campos": ["Pré-plantio", "Plantio", "Colheita", "Pós-Colheita", "Beneficiamento", "Aplicação de insumos", "Manutenção", "Despesas Adicionais"]};
+var lavouras = {"valores": [100,200,300,258,87,132,348,79], "campos": ["Pré-plantio", "Plantio", "Colheita", "Pos-Colheita", "Beneficiamento", "Aplicação de insumos", "Manutenção", "Despesas Adicionais"]};
 
 
 function loadPage() {
@@ -25,7 +25,7 @@ function buildList(){
 	var lista = document.getElementById("lavouraInforma");
 
 	$("#lavouraInforma").empty();
-	console.log(lista);
+
 	var total = document.createElement("li");
 	total.setAttribute("class", "list-group-item");
 	total.appendChild(document.createTextNode("Total de café colhido:"));
@@ -36,9 +36,9 @@ function buildList(){
 	price.appendChild(document.createTextNode("10000"));
 
 	total.appendChild(price);
-		console.log(total);
+		
 	lista.appendChild(total);
-			console.log(lista);
+			
 	var total = document.createElement("li");
 	total.setAttribute("class", "list-group-item");
 	total.appendChild(document.createTextNode("Total de sacas vendidas:"));
@@ -88,21 +88,6 @@ function buildList(){
 	total.appendChild(price);
 	
 	lista.appendChild(total);
-
-}
-
-function buildGraph2(){
-
-	$("#graph").empty();
-
-	var bar   = lavouras2.valores;
-	var ticks = lavouras2.campos;
-	var color = ['#FF0000'];
-
-	var formatString = "%'d";     
-	var divName = "graph";
-
-	graphBar(bar, ticks, color, divName, formatString, openModal);
 
 }
 

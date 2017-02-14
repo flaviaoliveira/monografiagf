@@ -146,5 +146,12 @@
 	</footer>
 
 
+<script type="text/javascript">
+	var valoresLavra = ['${despesa_total_preplantio}', '${despesa_total_plantio}', '${despesa_total_colheita}', '${despesa_total_poscolheita}', '${despesa_total_beneficiamento}', '${despesa_total_insumos}', '${despesa_total_manutencao}'];
+	console.log(valoresLavra);
+</script>
+
+
+
 </body>
 </html>
