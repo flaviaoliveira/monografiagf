@@ -11,7 +11,7 @@
 <title>Gestor Cafeeiro</title>
 
 </head>
-<body onload="loadPage()">
+<body>
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<div>
@@ -28,7 +28,7 @@
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<form method="POST" action="pesquisarelatorioEspecifico">
+					<form id="registerform" method="POST" action="pesquisarelatorioEspecifico">
 						<div class="form-group">
 							<h2>Relatório Específico</h2>
 						</div>
@@ -54,8 +54,8 @@
 
 								<div class="form-group">
 									<button value="insereAnalisePlantio" id="insereAnalise"
-										type="submit" class="btn btn-info btn-block">Pesquisar
-									</button>
+										type="submit" class="btn btn-info btn-block" onsubmit="return false"
+										onclick="buildGraph();buildList();">Pesquisar</button>
 								</div>
 							</div>
 						</div>
@@ -121,7 +121,7 @@
 						value="${despesa_total_manutencao}" />
 					<c:set var="despesa_total_despesaadd" scope="session"
 						value="${despesa_total_despesaadd}" />
-					
+
 
 
 					<!-- Esses itens são os dados que devem conter quando é clicado na barra do gráfico -->
@@ -134,6 +134,7 @@
 					<!--Esse dois vai junto pra manutenção  -->
 					<c:forEach var="manulavoura" items="${manulavoura}"></c:forEach>
 					<c:forEach var="manuequipamento" items="${manuequipamento}"></c:forEach>
+					<!--////////////////////////////////////////////////////// -->
 					<c:forEach var="despesaadd" items="${despesaadd}"></c:forEach>
 
 				</div>
@@ -144,12 +145,114 @@
 	</div>
 
 	<script type="text/javascript">
+	
+	
+		var totalCafeColhido = '${total_cafe}';
+		var totalCafeFinal = '${total_cafe_final}';		
+		var ganhoFinal = '${ganho_final}';
+		var custoSaca = '${custo_saca}';
+		var precoMedioSaca = '${precomedio_saca}';
+		var despesaTotal = '${despesa_total}';
+		var ganhoFinal = '${ganho_final}';
+		
+		
+		
 		var valoresLavra = [ '${despesa_total_preplantio}',
 				'${despesa_total_plantio}', '${despesa_total_colheita}',
 				'${despesa_total_poscolheita}',
 				'${despesa_total_beneficiamento}', '${despesa_total_insumos}',
-				'${despesa_total_manutencao}' ];
-		console.log(valoresLavra);
+				'${despesa_total_manutencao}', '${despesa_total_despesaadd}' ];
+
+
+		var nomesLavra = [ "Pré-plantio", "Plantio", "Colheita",
+				"Pos-Colheita", "Beneficiamento", "Aplicação de insumos",
+				"Manutenção", "Despesas Adicionais" ];
+
+		function buildGraph() {
+
+			$("#graph").empty();
+
+			var bar = valoresLavra;
+			var ticks = nomesLavra;
+			var color = [ '#FF0000' ]
+			
+			console.log(bar);
+			console.log(ticks);
+
+			var formatString = "%'d";
+			var divName = "graph";
+
+			graphBar(bar, ticks, color, divName, formatString, openModal);
+
+		}
+		function buildList(){
+			var lista = document.getElementById("lavouraInforma");
+
+			$("#lavouraInforma").empty();
+			var total = document.createElement("li");
+			total.setAttribute("class", "list-group-item");
+			total.appendChild(document.createTextNode("Total de café colhido:"));
+			
+			console.log(ganhoFinal);
+
+			var price = document.createElement("spam");
+			price.setAttribute("class", "pull-right");
+			price.appendChild(document.createTextNode(totalCafeColhido));
+
+			total.appendChild(price);
+			lista.appendChild(total);
+			var total = document.createElement("li");
+			total.setAttribute("class", "list-group-item");
+			total.appendChild(document.createTextNode("Total de sacas vendidas:"));
+
+			var price = document.createElement("spam");
+			price.setAttribute("class", "pull-right");
+			price.appendChild(document.createTextNode(totalCafeFinal));
+
+			total.appendChild(price);
+			
+			lista.appendChild(total);
+
+			var total = document.createElement("li");
+			total.setAttribute("class", "list-group-item");
+			total.appendChild(document.createTextNode("Total de despesas:"));
+
+			var price = document.createElement("spam");
+			price.setAttribute("class", "pull-right");
+			price.appendChild(document.createTextNode(despesaTotal));
+
+			total.appendChild(price);
+			
+			lista.appendChild(total);
+
+			var total = document.createElement("li");
+			total.setAttribute("class", "list-group-item");
+			total.appendChild(document.createTextNode("Despezas para produzir uma saca:"));
+
+			var price = document.createElement("spam");
+			price.setAttribute("class", "pull-right");
+			price.appendChild(document.createTextNode(custoSaca));
+
+			total.appendChild(price);
+			
+			lista.appendChild(total);
+
+
+			var total = document.createElement("li");
+			total.setAttribute("class", "list-group-item");
+			total.setAttribute("style", "font-size: 18px;");
+			total.appendChild(document.createTextNode("Ganho final:"));
+
+			var price = document.createElement("spam");
+			price.setAttribute("class", "pull-right");
+			price.appendChild(document.createTextNode(ganhoFinal));
+
+			total.appendChild(price);
+			
+			lista.appendChild(total);
+
+		}
+
 	</script>
 
 	<!-- Footer -->
