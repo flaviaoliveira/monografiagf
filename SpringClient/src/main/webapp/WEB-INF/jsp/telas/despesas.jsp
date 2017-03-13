@@ -42,7 +42,7 @@
 						<li role="presentation"><a href="#colheita"
 							aria-controls="colheita" role="tab" data-toggle="tab">Colheita</a></li>
 						<li role="presentation"><a href="#poscolheita"
-							aria-controls="colheita" role="tab" data-toggle="tab">Pos-Colheita</a></li>
+							aria-controls="colheita" role="tab" data-toggle="tab">Pós-Colheita</a></li>
 						<li role="presentation"><a href="#beneficiamento"
 							aria-controls="beneficiamento" role="tab" data-toggle="tab">Beneficiamento</a></li>
 						<li role="presentation"><a href="#insumos"
@@ -362,6 +362,7 @@
 									</div>
 
 								</div>
+								
 
 							</form>
 

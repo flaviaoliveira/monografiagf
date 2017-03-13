@@ -24,125 +24,91 @@
 
 	<div class="container" style="width: default">
 
-		<div class="row text-center" >
+		<div class="row text-center">
 			<div class="panel panel-primary">
 				<div class="panel-body">
 					<div class="form-group">
 						<div class="container-fluid">
 
 
-							<section class="jumbotron text-center">
-								<div class="container">
-									<h2 class="jumbotron-heading">Gestor Cafeeiro</h2>
-									<p class="lead text-muted">Garantindo uma gestão eficiente
-										das suas lavouras!</p>
+
+
+
+							<div class="container-fluid bg-3 text-center">
+								<h2>Gestor Cafeeiro</h2>
+								<hr>
+								<br>
+								<div class="row">
+									<div class="col-sm-3">
+										<a href="cadastralavoura">
+											<p>Regitrar Lavoura</p> <img class=" img-fluid img-circle" style="width:70%"
+											src="/assets/bootstrap-3.3.5-dist/img/lavoura2.jpg"
+											alt="Image">
+										</a>
+									</div>
+									<div class="col-sm-3">
+										<a href="despesas">
+											<p>Registrar Despesas</p> <img class=" img-fluid img-circle" style="width:70%"
+											src="/assets/bootstrap-3.3.5-dist/img/gasto.png" alt="Image">
+										</a>
+									</div>
+									<div class="col-sm-3">
+										<a href="pragasdoencas">
+											<p>Registrar Pragas ou Doenças</p> <img class=" img-fluid img-circle" style="width:70%"
+											src="/assets/bootstrap-3.3.5-dist/img/praga.png" alt="Image">
+										</a>
+									</div>
+									
+									
+									<div class="col-sm-3">
+										<a href="relatorioGeral">
+											<p>Relatório Geral</p> <img class=" img-fluid img-circle" style="width:70%"
+											src="/assets/bootstrap-3.3.5-dist/img/relatoriogeral.png"
+											alt="Image">
+										</a>
+									</div>
 								</div>
-							</section>
-							<!-- Team Members Row -->
-
-							<div class="row text-center">
-							
-								<h2>Registrar</h2>
-								<hr>					
-							
-								<div class="col-lg-4 text-center">
-									<a href="cadastralavoura"><img
-										class="img-circle" style="width: 40%"
-										src="/assets/bootstrap-3.3.5-dist/img/lavouraProdução.png">
-										<h3>Lavoura</h3></a>
-
-								</div>
-								<!-- /.col-lg-4 -->
-								<div class="col-lg-4 text-center">
-									<a href="despesas"> <img
-										class="img-circle" style="width: 40%"
-										src="/assets/bootstrap-3.3.5-dist/img/gasto.png">
-										<h3>Despesa</h3></a>
-
-
-								</div>
-								<!-- /.col-lg-4 -->
-								<div class="col-lg-4 text-center">
-									<a href="pragasdoencas"> <img
-										class="img-fluid img-circle" style="width: 40%"
-										src="/assets/bootstrap-3.3.5-dist/img/praga.png">
-										<h3>Pragas ou Doenças</h3></a>
-
-
-								</div>
-								<!-- /.col-lg-4 -->
 							</div>
-							
-							
-							
-							<div class="row text-center" >
-							
-								
-								<h2>Adubação e Calagem</h2>
-								<hr>					
-							
-								<div class="col-lg-4 text-center">
-									<a href="recomendacaoPlantio"><img
-										class=" img-fluid img-circle" style="width: 40%"
-										src="/assets/bootstrap-3.3.5-dist/img/lavouraPlatio.png">
-										<h3>Plantio e Formação</h3></a>
+							<hr><br> 
 
+							<div class="container-fluid bg-3 text-center">
+								<div class="row">
+								<div class="col-sm-3">
+										<a href="recomendacaoPlantio">
+											<p>Recomendação-Plantio e formação</p> <img class=" img-fluid img-circle" style="width:70%"
+											src="/assets/bootstrap-3.3.5-dist/img/lavouraPlatio.png"
+											alt="Image">
+										</a>
+									</div>
+									<div class="col-sm-3">
+										<a href="recomendacaoLavouraProducao">
+											<p>Recomendação-Lavoura em produção</p> <img class=" img-fluid img-circle" style="width:70%"
+											src="/assets/bootstrap-3.3.5-dist/img/lavouraProdução.png"
+											alt="Image">
+										</a>
+									</div>
+
+
+									<div class="col-sm-3">
+										<a href="recomendacaoLavouraRecepada">
+											<p>Recomendação-Lavoura Recepada</p> <img class=" img-fluid img-circle" style="width:70%"
+											src="/assets/bootstrap-3.3.5-dist/img/lavouraRecepada.png"
+											alt="Image">
+										</a>
+									</div>
+									<div class="col-sm-3">
+										<a href="recomendacaoLavouraRecepada">
+											<p>Relatório Específico</p> <img class=" img-fluid img-circle" style="width:70%"
+											src="/assets/bootstrap-3.3.5-dist/img/relatorioespecifico.png"
+											alt="Image">
+										</a>
+									</div>
+									
 								</div>
-								<!-- /.col-lg-4 -->
-								<div class="col-lg-4 text-center">
-									<a href="recomendacaoLavouraProducao"> <img
-										class=" img-fluid img-circle" style="width: 40%"
-										src="/assets/bootstrap-3.3.5-dist/img/lavouraProdução.png">
-										<h3>Lavoura em Produção</h3></a>
 
-
-								</div>
-								<!-- /.col-lg-4 -->
-								<div class="col-lg-4 text-center">
-									<a href="recomendacaoLavouraRecepada"> <img
-										class="img-fluid img-circle" style="width: 40%"
-										src="/assets/bootstrap-3.3.5-dist/img/lavouraRecepada.png">
-										<h3>Lavoura Recepada</h3></a>
-
-
-								</div>
-								<!-- /.col-lg-4 -->
 							</div>
-
-
-							<div class="row">
-							
-								<h2>Relatórios</h2>
-								<hr>					
-							
-								<div class="col-lg-4 text-center">
-									<a href="relatorioEspecifico"><img
-										class=" img-fluid img-circle" style="width: 40%"
-										src="/assets/bootstrap-3.3.5-dist/img/relatorioespecifico.png">
-										<h3>Ano Específico</h3></a>
-
-								</div>
-								<!-- /.col-lg-4 -->
-								<div class="col-lg-4 text-center">
-									<a href="relatorioGeral"> <img
-										class=" img-fluid img-circle" style="width: 40%"
-										src="/assets/bootstrap-3.3.5-dist/img/relatoriogeral.png">
-										<h3>Geral</h3></a>
-								</div>
-								
-								
-							</div>
-
-
-
-
-
-
-
-
+							<br> <br>
 						</div>
-
-
 
 					</div>
 				</div>

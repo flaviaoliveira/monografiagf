@@ -28,7 +28,9 @@
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<form id="registerform" method="POST" action="pesquisarelatorioEspecifico">
+				
+					<form id="registerform" method="POST" action="pesquisarelatorioEspecifico" onsubmit="return false">
+						
 						<div class="form-group">
 							<h2>Relatório Específico</h2>
 						</div>
@@ -53,8 +55,8 @@
 								</div>
 
 								<div class="form-group">
-									<button value="insereAnalisePlantio" id="insereAnalise"
-										type="submit" class="btn btn-info btn-block" onsubmit="return false"
+									<button value="pesquisarelatorioEspecifico" id="busca"
+										type="submit" class="btn btn-info btn-block"
 										onclick="buildGraph();buildList();">Pesquisar</button>
 								</div>
 							</div>
@@ -76,6 +78,8 @@
 					</div>
 
 
+					<!-- modal -->
+
 					<div class="modal fade" id="modalLavoura" role="dialog">
 						<div class="modal-dialog">
 
@@ -86,9 +90,8 @@
 								</div>
 								<div class="modal-body">
 									<div class="body-content col-sm-12">
-
-										<span id="detalhesColuna"></span>
-
+										<!-- conteúdo de cada despesa -->
+										<table id="conteudo"></table>
 									</div>
 								</div>
 								<div class="modal-footer">
@@ -102,6 +105,8 @@
 						</div>
 
 					</div>
+
+
 
 					<!-- Esses itens são as barras do gráfico -->
 
@@ -144,8 +149,8 @@
 
 	</div>
 
+
 	<script type="text/javascript">
-	
 	
 		var totalCafeColhido = '${total_cafe}';
 		var totalCafeFinal = '${total_cafe_final}';		
@@ -155,7 +160,18 @@
 		var despesaTotal = '${despesa_total}';
 		var ganhoFinal = '${ganho_final}';
 		
-		
+
+		var preplantio = '${preplantio}';
+		var plantio = '${plantio}';
+		var colheita = '${colheita}';
+		var poscolheita = '${poscolheita}';
+		var beneficiamento = '${beneficiamento}';
+		var insumos ='${insumos}';
+		var manulavoura ='${manulavoura}';
+		var manuequipamento='${manuequipamento}';
+		var despesaadd ='${despesaadd}';
+
+
 		
 		var valoresLavra = [ '${despesa_total_preplantio}',
 				'${despesa_total_plantio}', '${despesa_total_colheita}',
@@ -253,6 +269,88 @@
 
 		}
 
+		function openModal(point){
+			$('#modalLavoura').modal('show');
+
+			$('#conteudo').empty();
+			if(point == 0){
+
+				var corpotabela = document.getElementById('conteudo');
+
+
+				var tableHead = document.createElement('tr');
+
+				var data = document.createElement('th');
+				data.appendChild(document.createTextNode("Data"));
+
+				tableHead.appendChild(data);
+
+				var maodeobra = document.createElement('th');
+				maodeobra.appendChild(document.createTextNode("Mão de Obra"));
+				
+				tableHead.appendChild(maodeobra);
+
+				var adubacao = document.createElement('th');
+				adubacao.appendChild(document.createTextNode("Adubação"));
+				
+				tableHead.appendChild(adubacao);
+
+				var calcario = document.createElement('th');
+				calcario.appendChild(document.createTextNode("Calcário"));
+				
+				tableHead.appendChild(calcario);
+
+				var herbicida = document.createElement('th');
+				herbicida.appendChild(document.createTextNode("Herbicida"));
+				
+				tableHead.appendChild(herbicida);
+
+				var outros = document.createElement('th');
+				outros.appendChild(document.createTextNode("Outros"));
+				
+				tableHead.appendChild(outros);
+
+				corpotabela.appendChild(tableHead);
+
+
+				for(var i=0; i < 2; i++){
+
+					var linha = document.createElement('tr');
+
+					var data = document.createElement('td');
+					data.appendChild(document.createTextNode('1212'));
+
+					linha.appendChild(data);
+
+					var maodeobra = document.createElement('td');
+					maodeobra.appendChild(document.createTextNode('123123'));
+					
+					linha.appendChild(maodeobra);
+
+					var adubacao = document.createElement('td');
+					adubacao.appendChild(document.createTextNode('123123123'));
+					
+					linha.appendChild(adubacao);
+
+					var calcario = document.createElement('td');
+					calcario.appendChild(document.createTextNode('balbal'));
+					
+					linha.appendChild(calcario);
+
+					var herbicida = document.createElement('td');
+					herbicida.appendChild(document.createTextNode('123123'));
+					
+					linha.appendChild(herbicida);
+
+					var outros = document.createElement('td');
+					outros.appendChild(document.createTextNode('737373'));
+					
+					linha.appendChild(outros);
+
+					corpotabela.appendChild(linha);
+				}
+			}
+		}
 	</script>
 
 	<!-- Footer -->

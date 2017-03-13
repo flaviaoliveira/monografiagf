@@ -11,7 +11,7 @@ public class IndexController implements ErrorController{
 
     @RequestMapping(value = PATH)
     public String error() {
-        return "Error handling";
+        return "redirect:loginForm";
     }
 
     @Override

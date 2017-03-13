@@ -44,7 +44,7 @@
 
 
 
-<body>
+<body   background="/assets/bootstrap-3.3.5-dist/img/plano1.png">
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->

@@ -21,6 +21,7 @@
 	<hr>
 	<hr>
 	<div class="container">
+	
 		<div class="row">
 			<div class="panel panel-primary">
 				<div class="panel-body">
@@ -125,22 +126,22 @@
 
 							<div class="row">
 								<div class="col-lg-4 text-center">
-									<img class="img-circle"
+									<img class="img-circle" style="width:50%"
 										src="/assets/bootstrap-3.3.5-dist/img/gasto.png">
 									<h2>Despesa</h2>
 									<p>Registre todas as despesas obtidas na sua produção de café em tempor real.</p>
 								</div>
 								<!-- /.col-lg-4 -->
-								<div class="col-lg-4 text-center">
-									<img class="img-circle"
+								<div class="col-lg-4 text-center" >
+									<img class="img-circle" style="width:50%"
 										src="/assets/bootstrap-3.3.5-dist/img/relatorioespecifico.png">
 									<h2>Relatórios</h2>
 									<p>Veja os relatorios feitos com base nós gastos registrados no Gestor Cafeeiro.</p>
 
 								</div>
 								<!-- /.col-lg-4 -->
-								<div class="col-lg-4 text-center"> 
-									<img class="img-fluid img-circle" 
+								<div class="col-lg-4 text-center" > 
+									<img class="img-fluid img-circle" style="width:50%"
 										src="/assets/bootstrap-3.3.5-dist/img/img2.png">
 									<h2>Adubação e Calagem</h2>
 									<p>Faça a recomendação de adubação e calagem de forma fácil.</p>

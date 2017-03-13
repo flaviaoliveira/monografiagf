@@ -41,6 +41,7 @@ public class RelatoriosController {
 
 	@RequestMapping("relatorioEspecifico")
 	public String relatorioespecifico(ModelMap model, HttpSession session) throws SQLException {
+		System.out.println("entrou1");
 		Produtor usuario = (Produtor) session.getAttribute("usuarioLogado");
 		List<Propriedade> prop = new ArrayList<Propriedade>();
 		PropriedadeDAO p = new PropriedadeDAO();
@@ -54,10 +55,14 @@ public class RelatoriosController {
 	@RequestMapping("pesquisarelatorioEspecifico")
 	public String pesquisarelatorioespecifico(@Valid Pesquisa pesquisa, ModelMap model, HttpSession session)
 			throws SQLException {
+		System.out.println("entrou");
 		Produtor usuario = (Produtor) session.getAttribute("usuarioLogado");
 		List<Propriedade> prop = new ArrayList<Propriedade>();
 		PropriedadeDAO p = new PropriedadeDAO();
-
+		
+		System.out.println(pesquisa.getAno());
+		System.out.println(pesquisa.getId());
+		
 		prop = p.findPropriedade(usuario.getId_produtor());
 		model.addAttribute("lavouras", prop);
        
